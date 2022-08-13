@@ -8,31 +8,50 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        return view('web.dashboard');
+        $data['menu']   = 'Dashboard';
+        
+        return view('web.dashboard', $data);
+    }
+
+    public function nasabah(Request $request)
+    {
+        $data['menu']   = 'Nasabah';
+
+        return view('web.nasabah', $data);
     }
 
     public function inputDataAnggota()
     {
-        return view('web.input-data.anggota');
+        $data['menu']   = 'Input Data Nasabah';
+
+        return view('web.input-data.anggota', $data);
     }
 
     public function inputDataInformasi(Request $request)
     {
-        return view('web.input-data.informasi');
+        $data['menu']   = 'Input Data Informasi';
+
+        return view('web.input-data.informasi', $data);
     }
 
     public function inputDataFoto(Request $request)
     {
-        return view('web.input-data.foto');
+        $data['menu']   = 'Input Data Foto';
+
+        return view('web.input-data.foto', $data);
     }
 
     public function inputDataPenghasilan(Request $request)
     {
-        return view('web.input-data.penghasilan');
+        $data['menu']   = 'Input Data Penghasilan';
+
+        return view('web.input-data.penghasilan', $data);
     }
 
     public function konfirmasiData(Request $request)
     {
-        return view('web.input-data.konfirmasi');
+        $data['menu']   = 'Konfirmasi Data';
+
+        return view('web.input-data.konfirmasi', $data);
     }
 }

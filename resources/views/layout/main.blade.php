@@ -35,10 +35,10 @@
             <!-- ============================================================== -->
             <div class="page-titles">
                 <div class="d-flex align-items-center">
-                    <h5 class="font-medium m-b-0">Dashboard</h5>
+                    <h5 class="font-medium m-b-0">{{ $menu }}</h5>
                     <div class="custom-breadcrumb ml-auto">
                         <a class="breadcrumb">Home</a>
-                        <a href="/" class="breadcrumb">Dashboard</a>
+                        <a href="/{{ request()->path() }}" class="breadcrumb">{{ $menu }}</a>
                     </div>
                 </div>
             </div>
