@@ -1,0 +1,4 @@
+.left-sidebar .sidenav ul > li.active > .collapsible-header {
+  background: none !important;
+  background-color: #2962FF !important;
+}
