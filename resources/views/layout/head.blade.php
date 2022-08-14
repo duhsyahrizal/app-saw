@@ -1,8 +1,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" sizes="16x16" href="/template/assets/images/favicon.png">
-<title>Materialart Admin Template</title>
+{{-- <link rel="icon" type="image/png" sizes="16x16" href="/template/assets/images/favicon.png"> --}}
+<title>{{ env('APP_NAME') }} | {{ $menu }}</title>
 <!-- chartist CSS -->
 <link href="/template/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
 <link href="/template/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
