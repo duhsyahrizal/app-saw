@@ -17,6 +17,8 @@ class CreateResultsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('nasabah_id');
             $table->date('borrow_date')->default(\Carbon\Carbon::now());
+            $table->integer('loan_nominal')->nullable();
+            $table->integer('remaining_payment')->nullable();
             $table->boolean('is_approved')->default(0);
             $table->timestamps();
 
