@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #048c8b;
+}
+
 .left-sidebar .sidenav ul > li.active > .collapsible-header {
   background: none !important;
   background-color: #048c8b !important;
@@ -9,4 +13,8 @@
 
 .pagination li.active {
     background-color: #048c8b !important;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+  color: #048c8b !important;
 }

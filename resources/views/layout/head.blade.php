@@ -6,7 +6,7 @@
 <!-- chartist CSS -->
 <link href="/template/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
 <link href="/template/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
-<link href="/template/dist/css/style.css" rel="stylesheet">
+<link href="/template/dist/css/style.css?v={{ time() }}" rel="stylesheet">
 <!-- This page CSS -->
 <link href="/template/dist/css/pages/dashboard1.css" rel="stylesheet">
 <link href="/template/dist/css/custom.css?v={{ time() }}" rel="stylesheet">
