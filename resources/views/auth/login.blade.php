@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="16x16" href="/template/assets/images/favicon.png">
-    <title>Materialart Admin Template</title>
+    {{-- <link rel="icon" type="image/png" sizes="16x16" href="/template/assets/images/favicon.png"> --}}
+    <title>{{ env('APP_NAME') }} | Login</title>
     <link href="/template/dist/css/style.css" rel="stylesheet">
     <!-- This page CSS -->
     <link href="/template/dist/css/pages/authentication.css" rel="stylesheet">
@@ -42,7 +42,7 @@
                 <div id="loginform">
                     <div class="logo">
                         {{-- <span class="db"><img src="/template/assets/images/logo-icon.png" alt="logo" /></span> --}}
-                        <h5 class="font-medium m-b-20" style="margin-top: 1.75rem;">Sign In to Admin</h5>
+                        <h5 class="font-medium m-b-20" style="margin-top: 1.75rem;">Sign In to Dashboard</h5>
                     </div>
                     <!-- Form -->
                     <div class="row">

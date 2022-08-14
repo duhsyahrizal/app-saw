@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/riwayat', 'FrontendController@riwayat');
 
     Route::group(['prefix' => '/input/data'], function() {
-        Route::get('/anggota', 'FrontendController@inputDataAnggota');
+        Route::get('/nasabah', 'FrontendController@inputDataAnggota');
         Route::get('/informasi', 'FrontendController@inputDataInformasi');
         Route::get('/foto', 'FrontendController@inputDataFoto');
         Route::get('/penghasilan', 'FrontendController@inputDataPenghasilan');

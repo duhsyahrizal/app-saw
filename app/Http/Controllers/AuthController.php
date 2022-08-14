@@ -20,7 +20,12 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
-        if(auth()->guard('web')->attempt($request->except('_token'))) {
+        $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+        if(auth()->guard('web')->attempt([
+            $fieldType  => $request->username,
+            'password'  => $request->password
+        ])) {
             return redirect($this->redirectTo);
         }
 
@@ -33,6 +38,7 @@ class AuthController extends Controller
     public function logout(Request $request) 
     {
         auth()->logout();
+        auth()->invalidate();
 
         return redirect('/login');
     }

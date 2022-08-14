@@ -23,7 +23,7 @@ class CreateNasabahBusinessesTable extends Migration
             $table->integer('operating_revenue');
             $table->tinyInteger('operating_margin');
             $table->integer('turnover_income');
-            $table->integer('business_outcome');
+            $table->integer('business_fund');
             $table->integer('other_income');
             $table->integer('non_business_expense');
             $table->integer('total_installment');

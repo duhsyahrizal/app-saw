@@ -20,8 +20,8 @@ class CreateNasabahInformationTable extends Migration
             $table->string('birth_location', 50)->nullable();
             $table->boolean('gender')->nullable();
             $table->string('address_by_identity', 255)->nullable();
-            $table->tinyInteger('rt', 3)->unsigned()->nullable();
-            $table->tinyInteger('rw', 3)->unsigned()->nullable();
+            $table->string('rt', 3)->nullable();
+            $table->string('rw', 3)->nullable();
             $table->string('province', 50)->nullable();
             $table->string('district', 50)->nullable();
             $table->string('sub_district', 50)->nullable();
@@ -32,10 +32,10 @@ class CreateNasabahInformationTable extends Migration
             $table->string('nickname', 50)->nullable();
             $table->string('mother_name', 100)->nullable();
             $table->string('identity_photo', 255)->nullable();
-            $table->string('mother_photo', 255)->nullable();
+            $table->string('parent_photo', 255)->nullable();
             $table->string('account_photo', 255)->nullable();
             $table->string('face_photo', 255)->nullable();
-            $table->tinyInteger('business_status', 1)->comment('0: owner | 1: own parent | 2: lent')->nullable();
+            $table->tinyInteger('business_status')->comment('0: owner | 1: own parent | 2: lent')->nullable();
             $table->tinyInteger('status')->default(0)->comment('0: not action | 1: approved | 2: rejected');
             $table->timestamps();
 
