@@ -25,7 +25,7 @@
 @endsection
 
 @section('js')
-    <script src="/template/assets/extra-libs/Datatables/datatables.min.js"></script>
+    <script src="/template/dist/js/plugins/Datatables/datatables.min.js"></script>
     <script src="/template/dist/js/pages/datatable/datatable-basic.init.js"></script>
     <script>
         $('#datatable').DataTable({
