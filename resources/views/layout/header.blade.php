@@ -115,7 +115,9 @@
               </div>
             </li>
             <li role="separator" class="divider"></li>
-            <li><a href="/logout"><i class="material-icons">power_settings_new</i> Logout</a></li>
+            <li><a href="/logout" style="color: grey !important;"><i class="material-icons"
+                  style="color: red !important;">power_settings_new</i>
+                Logout</a></li>
           </ul>
         </li>
       </ul>
