@@ -16,6 +16,8 @@ class CreateResultsTable extends Migration
         Schema::create('results', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('nasabah_id');
+            $table->date('borrow_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->boolean('is_approved')->default(0);
             $table->timestamps();
 
             $table->foreign('nasabah_id')->references('id')->on('nasabahs')

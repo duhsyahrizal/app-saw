@@ -13,11 +13,18 @@ class FrontendController extends Controller
         return view('web.dashboard', $data);
     }
 
-    public function nasabah(Request $request)
+    public function nasabah()
     {
         $data['menu']   = 'Nasabah';
 
         return view('web.nasabah', $data);
+    }
+
+    public function riwayat()
+    {
+        $data['menu']   = 'Riwayat';
+
+        return view('web.riwayat', $data);
     }
 
     public function inputDataAnggota()

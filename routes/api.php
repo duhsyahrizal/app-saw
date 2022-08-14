@@ -18,4 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/datatable/nasaba', 'ApiController@datatableNasabah');
+Route::namespace('Api')->group(function() {
+    Route::get('/datatable/nasabah', 'ApiController@datatableNasabah');
+    Route::get('/datatable/riwayat', 'ApiController@datatableRiwayat');
+});

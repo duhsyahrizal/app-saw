@@ -4,21 +4,14 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-content">
-                <h5 class="card-title">Daftar Nasabah
-                    <a href="/input/data/informasi" class="waves-effect waves-light btn primary"
-                        style="float: right; margin: 0 4px">Input
-                        Persyaratan</a>
-                    <a href="/input/data/nasabah" class="waves-effect waves-light btn primary"
-                        style="float: right; margin: 0 4px">Input
-                        Anggota / Nasabah</a>
-                </h5>
+                <h5 class="card-title">Riwayat Transaksi</h5>
                 <table id="datatable" class="responsive-table display">
                     <thead class="primary white-text">
                         <tr>
                             <th>Nama Nasabah</th>
                             <th>NIK</th>
+                            <th>Tanggal Pinjam</th>
                             <th>Status</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                 </table>
@@ -36,7 +29,7 @@
     <script src="/template/dist/js/pages/datatable/datatable-basic.init.js"></script>
     <script>
         $('#datatable').DataTable({
-            "ajax": '/api/datatable/nasabah',
+            "ajax": '/api/datatable/riwayat',
             "pageLength": 25,
         })
     </script>
