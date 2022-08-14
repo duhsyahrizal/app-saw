@@ -16,7 +16,7 @@ class CreateRiwayatsTable extends Migration
         Schema::create('riwayats', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('nasabah_id');
-            $table->date('borrow_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->date('borrow_date')->default(DB::raw('CURDATE()'));
             $table->boolean('is_paid')->default(0);
             $table->timestamps();
 
