@@ -21,7 +21,7 @@
 
 <div class="fixed-action-btn">
     <a class="btn-floating waves-effect waves-light btn-large primary">
-        <i class="large material-icons">mode_edit</i>
+        <i class="large material-icons">add</i>
     </a>
     <ul>
         <li>
