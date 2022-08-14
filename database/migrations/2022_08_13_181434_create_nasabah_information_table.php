@@ -36,7 +36,6 @@ class CreateNasabahInformationTable extends Migration
             $table->string('account_photo', 255)->nullable();
             $table->string('face_photo', 255)->nullable();
             $table->tinyInteger('business_status')->comment('0: owner | 1: own parent | 2: lent')->nullable();
-            $table->tinyInteger('status')->default(0)->comment('0: not action | 1: approved | 2: rejected');
             $table->timestamps();
 
             $table->foreign('nasabah_id')->references('id')->on('nasabahs')

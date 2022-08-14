@@ -15,12 +15,12 @@ class ApiController extends Controller
         $data       = array();
 
         foreach($nasabah as $item) {
-            $status = $item->information->status == 1 ? 'Approved' : 'Rejected';
+            $status = $item->status == 1 ? 'Approved' : 'Rejected';
 
             $data[] = [
-                $item->name,
+                $item->name_by_identity,
                 $item->nik,
-                $item->information->status == 0 ? 'Not Action' : $status,
+                $item->status == 0 ? 'Not Action' : $status,
                 ''
             ];
         }

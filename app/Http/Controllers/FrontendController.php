@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use App\Models\Nasabah;
 
 class FrontendController extends Controller
 {
@@ -34,9 +36,42 @@ class FrontendController extends Controller
         return view('web.input-data.anggota', $data);
     }
 
+    public function postDataNasabah(Request $request)
+    {
+        $messages = [
+            'name'  => ':attribute must be least than :min digit',
+            'nik'   => ':attribute must be :max digit',
+        ];
+
+        $isValidate = Validator::make($request->all(), [
+            'name'  => 'required|max:100|min:10',
+            'nik'   => 'required|max:16'
+        ], $messages);
+
+        if($isValidate->fails()) {
+            return redirect()->back()
+                ->withErrors($isValidate)
+                ->withInput();
+        }
+
+        $isCreated  = Nasabah::create([
+            'name_by_identity'  => $request->name,
+            'nik'               => $request->nik
+        ]);
+
+        if(!$isCreated) {
+            return redirect()->back()
+                ->withErrors('Failed when created nasabah!');
+        }
+
+        return redirect('/nasabah')
+            ->withSuccess('Success created data nasabah!');
+    }
+
     public function inputDataInformasi(Request $request)
     {
-        $data['menu']   = 'Input Data Informasi';
+        $data['menu']       = 'Input Persyaratan Nasabah';
+        $data['nasabah']    = Nasabah::get();
 
         return view('web.input-data.informasi', $data);
     }

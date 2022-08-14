@@ -23,7 +23,10 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::group(['prefix' => '/input/data'], function() {
         Route::get('/nasabah', 'FrontendController@inputDataAnggota');
+        Route::post('/nasabah', 'FrontendController@postDataNasabah');
+
         Route::get('/informasi', 'FrontendController@inputDataInformasi');
+
         Route::get('/foto', 'FrontendController@inputDataFoto');
         Route::get('/penghasilan', 'FrontendController@inputDataPenghasilan');
     });

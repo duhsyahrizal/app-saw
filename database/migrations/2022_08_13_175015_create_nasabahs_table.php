@@ -17,6 +17,7 @@ class CreateNasabahsTable extends Migration
             $table->increments('id');
             $table->string('name_by_identity', 100);
             $table->string('nik', 20);
+            $table->tinyInteger('status')->default(0)->comment('0: not action | 1: approved | 2: rejected');
             $table->timestamps();
         });
     }

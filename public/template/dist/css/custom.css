@@ -1,8 +1,12 @@
 .left-sidebar .sidenav ul > li.active > .collapsible-header {
   background: none !important;
-  background-color: #2962FF !important;
+  background-color: #048c8b !important;
 }
 
 .primary {
-  background-color: #2962FF !important;
+  background-color: #048c8b !important;
+}
+
+.pagination li.active {
+    background-color: #048c8b !important;
 }
