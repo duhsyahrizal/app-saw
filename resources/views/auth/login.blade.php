@@ -42,7 +42,7 @@
                 <div id="loginform">
                     <div class="logo">
                         {{-- <span class="db"><img src="/template/assets/images/logo-icon.png" alt="logo" /></span> --}}
-                        <h5 class="font-medium m-b-20" style="margin-top: 1.75rem;">Sign In to Admin</h5>
+                        <h5 class="font-medium m-b-20" style="margin-top: 1.75rem;">Sign In to Dashboard</h5>
                     </div>
                     <!-- Form -->
                     <div class="row">
