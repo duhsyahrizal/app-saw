@@ -12,9 +12,9 @@
                     <img class="light-logo" src="/template/assets/images/logo-light-icon.png">
                     <img class="dark-logo" src="/template/assets/images/logo-icon.png">
                 </span>
-                <span class="text">
-                    <img class="light-logo" src="/template/assets/images/logo-light-text.png">
-                    <img class="dark-logo" src="/template/assets/images/logo-text.png">
+                <span class="text"> <br> <h4>AIS System</h4> </br> 
+               <!--                    <img class="light-logo" src="/template/assets/images/logo-light-text.png">
+                    <img class="dark-logo" src="/template/assets/images/logo-text.png"> -->
                 </span>
             </a>
             <!-- ============================================================== -->
