@@ -14,11 +14,12 @@
                     <div class="card-content">
                         <div class="d-flex no-block align-items-center">
                             <div>
-                                <h2 class="white-text m-b-5">250</h2>
-                                <h6 class="white-text op-5 light-blue-text">Invoices</h6>
+                                <h2 class="white-text m-b-5">0</h2>
+                                <h7 class="white-text op-5 light-blue-text">Data Nasabah</h7>
                             </div>
                             <div class="ml-auto">
-                                <span class="white-text display-6"><i class="material-icons">assignment</i></span>
+                                <span class="white-text display-6"><i class="material-icons">account_circle</i>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -29,8 +30,8 @@
                     <div class="card-content">
                         <div class="d-flex no-block align-items-center">
                             <div>
-                                <h2 class="white-text m-b-5">520</h2>
-                                <h6 class="white-text op-5">News Feed</h6>
+                                <h2 class="white-text m-b-5">0</h2>
+                                <h6 class="white-text op-5">Riwayat Transaksi</h6>
                             </div>
                             <div class="ml-auto">
                                 <span class="white-text display-6"><i class="material-icons">receipt</i></span>
@@ -46,8 +47,8 @@
                     <div class="card-content">
                         <div class="d-flex no-block align-items-center">
                             <div>
-                                <h2 class="white-text m-b-5">100</h2>
-                                <h6 class="white-text op-5 text-darken-2">Sales</h6>
+                                <h2 class="white-text m-b-5">0</h2>
+                                <h6 class="white-text op-5 text-darken-2">Hasil Pengajuan</h6>
                             </div>
                             <div class="ml-auto">
                                 <span class="white-text display-6"><i class="material-icons">equalizer</i></span>
@@ -62,8 +63,8 @@
                     <div class="card-content">
                         <div class="d-flex no-block align-items-center">
                             <div>
-                                <h2 class="white-text m-b-5">450</h2>
-                                <h6 class="white-text op-5">Revenue</h6>
+                                <h2 class="white-text m-b-5">0</h2>
+                                <h8 class="white-text op-5">Total Pembayaran Selesai</h8>
                             </div>
                             <div class="ml-auto">
                                 <span class="white-text display-6"><i class="material-icons">attach_money</i></span>
