@@ -24,10 +24,6 @@
               <input id="nik" name="nik" type="text" placeholder="Masukkan NIK">
               <label for="nik" class="active">NIK</label>
             </div>
-            <div class="input-field">
-              <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
-              </button>
-            </div>
             <div class="box-button">
               <button type="submit" class="btn waves-effect waves-light primary right">Submit</button>
             </div>
