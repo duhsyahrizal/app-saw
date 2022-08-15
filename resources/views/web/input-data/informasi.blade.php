@@ -42,13 +42,13 @@
             <div class="row m-t-20">
               <div class="col s6 m3 l2">
                 <label>
-                  <input name="gender" value="0" type="radio" required />
+                  <input name="gender" class="with-gap" value="0" type="radio" required />
                   <span>Laki laki</span>
                 </label>
               </div>
               <div class="col s6 m3 l2">
                 <label>
-                  <input name="gender" value="1" type="radio" />
+                  <input name="gender" class="with-gap" value="1" type="radio" />
                   <span>Perempuan</span>
                 </label>
               </div>
@@ -79,13 +79,13 @@
             <div class="row m-t-20">
               <div class="col s6 m6 l3">
                 <label>
-                  <input name="ktp_status" value="1" type="radio" required />
+                  <input name="ktp_status" class="with-gap" value="1" type="radio" required />
                   <span>KTP berlaku seumur hidup</span>
                 </label>
               </div>
               <div class="col s6 m6 l3">
                 <label>
-                  <input name="ktp_status" value="0" type="radio" />
+                  <input name="ktp_status" class="with-gap" value="0" type="radio" />
                   <span>KTP belum dicetak (Resi)</span>
                 </label>
               </div>
@@ -108,19 +108,19 @@
             <div class="row">
               <div class="input-field col s4 m3 l2">
                 <label>
-                  <input name="status" value="menikah" type="radio" />
+                  <input name="status" class="with-gap" value="menikah" type="radio" />
                   <span>Menikah</span>
                 </label>
               </div>
               <div class="input-field col s4 m3 l2">
                 <label>
-                  <input name="status" value="bercerai" type="radio" />
+                  <input name="status" class="with-gap" value="bercerai" type="radio" />
                   <span>Bercerai</span>
                 </label>
               </div>
               <div class="input-field col s4 m3 l3">
                 <label>
-                  <input name="status" value="belum menikah" type="radio" required />
+                  <input name="status" class="with-gap" value="belum menikah" type="radio" required />
                   <span>Belum Menikah</span>
                 </label>
               </div>
@@ -133,13 +133,13 @@
       </form>
     </div>
   </div>
-    <script src="../../assets/libs/pickadate/lib/compressed/picker.js"></script>
-    <script src="../../assets/libs/pickadate/lib/compressed/picker.date.js"></script>
-    <script src="../../assets/libs/pickadate/lib/compressed/picker.time.js"></script>
-    <script src="../../assets/libs/pickadate/lib/compressed/legacy.js"></script>
-    <script src="../../assets/libs/moment/moment.js"></script>
-    <script src="../../assets/libs/daterangepicker/daterangepicker.js"></script>
-    <script src="../../dist/js/pages/forms/datetimepicker/datetimepicker.init.js"></script>
+  <script src="../../assets/libs/pickadate/lib/compressed/picker.js"></script>
+  <script src="../../assets/libs/pickadate/lib/compressed/picker.date.js"></script>
+  <script src="../../assets/libs/pickadate/lib/compressed/picker.time.js"></script>
+  <script src="../../assets/libs/pickadate/lib/compressed/legacy.js"></script>
+  <script src="../../assets/libs/moment/moment.js"></script>
+  <script src="../../assets/libs/daterangepicker/daterangepicker.js"></script>
+  <script src="../../dist/js/pages/forms/datetimepicker/datetimepicker.init.js"></script>
 </div>
 @endsection
 
