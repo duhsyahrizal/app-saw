@@ -46,8 +46,8 @@ class FrontendController extends Controller
     public function postDataNasabah(Request $request)
     {
         $messages = [
-            'name'  => ':attribute must be least than :min digit',
-            'nik'   => ':attribute must be :max digit',
+            'name'  => 'Nama tidak boleh lebih dari :min digit',
+            'nik'   => 'NIK harus kurang dari :max digit',
         ];
 
         $isValidate = Validator::make($request->all(), [
@@ -90,16 +90,28 @@ class FrontendController extends Controller
         return redirect('/input/data/foto');
     }
 
-    public function inputDataFoto(Request $request)
+    public function inputDataFoto()
     {
         $data['menu']   = 'Input Persyaratan Nasabah - Ambil Foto';
 
         return view('web.input-data.foto', $data);
     }
 
+    public function postDataFoto(Request $request)
+    {
+        $request->session()->put([
+            'foto1'  => $request->foto1,
+            'foto2'  => $request->foto2,
+            'foto3'  => $request->foto3,
+            'foto4'  => $request->foto4,
+        ]);
+
+        return redirect('/input/data/usaha');
+    }
+
     public function inputDataUsaha(Request $request)
     {
-        $data['menu']   = 'Input Data Usaha';
+        $data['menu']   = 'Input Persyaratan - Isi Informasi Tambahan & Data Usaha';
 
         return view('web.input-data.usaha', $data);
     }

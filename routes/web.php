@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('/foto', 'FrontendController@inputDataFoto');
         Route::post('/foto', 'FrontendController@postDataFoto');
 
-        Route::get('/penghasilan', 'FrontendController@inputDataPenghasilan');
+        Route::get('/usaha', 'FrontendController@inputDataUsaha');
     });
 
     Route::get('/konfirmasi/data', 'FrontendController@konfirmasiData');
