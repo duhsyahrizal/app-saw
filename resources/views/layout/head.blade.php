@@ -6,10 +6,14 @@
 <!-- chartist CSS -->
 <link href="/template/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
 <link href="/template/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/template/assets/libs/pickadate/lib/themes/default.css">
+<link rel="stylesheet" type="text/css" href="/template/assets/libs/pickadate/lib/themes/default.date.css">
+<link rel="stylesheet" type="text/css" href="/template/assets/libs/pickadate/lib/themes/default.time.css">
 <link href="/template/dist/css/style.css?v={{ time() }}" rel="stylesheet">
 <!-- This page CSS -->
 <link href="/template/dist/css/pages/dashboard1.css" rel="stylesheet">
 <link href="/template/dist/css/custom.css?v={{ time() }}" rel="stylesheet">
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

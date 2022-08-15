@@ -2,6 +2,8 @@
 
 @section('main-page')
 <div class="container-fluid">
+<<<<<<< HEAD
+<div class="container-fluid">
   <div class="card">
     <div class="card-content">
       <h5 class="card-title">Form Input Persyaratan</h5>
@@ -128,34 +130,15 @@
           </div>
         </div>
         <div class="box-button m-t-40">
-          <button type="submit" class="btn waves-effect waves-light primary">Next</button>
+          <button type="submit" class="btn waves-effect waves-light primary right">Next</button>
         </div>
       </form>
+=======
+    <div class="card">
+        <div class="card-content">
+            <h5 class="card-title">Form Data Informasi tambahan & Usaha</h5>
+        </div>
     </div>
-  </div>
-    <script src="../../assets/libs/pickadate/lib/compressed/picker.js"></script>
-    <script src="../../assets/libs/pickadate/lib/compressed/picker.date.js"></script>
-    <script src="../../assets/libs/pickadate/lib/compressed/picker.time.js"></script>
-    <script src="../../assets/libs/pickadate/lib/compressed/legacy.js"></script>
-    <script src="../../assets/libs/moment/moment.js"></script>
-    <script src="../../assets/libs/daterangepicker/daterangepicker.js"></script>
-    <script src="../../dist/js/pages/forms/datetimepicker/datetimepicker.init.js"></script>
+>>>>>>> ccbdb6db1502aff5b34efc54ef25183a1f3629e9
 </div>
-@endsection
-
-@section('css')
-<link rel="stylesheet" type="text/css"
-  href="/template/assets/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css">
-@endsection
-
-@section('js')
-<script src="/template/assets/libs/moment/moment.js"></script>
-<script src="/template/assets/libs/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker-custom.js">
-</script>
-<script>
-  // MAterial Date picker    
-  $(document).ready(function() {
-    $('#mdate').bootstrapMaterialDatePicker({ weekStart: 0, time: false });
-  })
-</script>
 @endsection
