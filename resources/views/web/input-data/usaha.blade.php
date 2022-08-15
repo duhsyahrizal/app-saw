@@ -2,143 +2,97 @@
 
 @section('main-page')
 <div class="container-fluid">
-<<<<<<< HEAD
-<div class="container-fluid">
-  <div class="card">
-    <div class="card-content">
-      <h5 class="card-title">Form Input Persyaratan</h5>
-      <form action="/input/data/informasi" method="POST">
-        @csrf
-        <div class="row m-t-20">
-          <div class="input-field col s12 m12 l6">
-            <select id="nasabah" name="nasabah_id" required>
-              <option value="" disabled selected>Pilih Nasabah</option>
-              @foreach($nasabah as $item)
-              <option value="{{ $item->id }}">{{ $item->nik . ' - ' . $item->name_by_identity }}</option>
-              @endforeach
-            </select>
-            <label for="nasabah">Pilih Nasabah</label>
-          </div>
-          <div class="input-field col s12 m12 l6">
-            <label for="address">Alamat sesuai KTP</label>
-            <input type="text" name="address" placeholder="Masukkan Alamat" id="address" required>
-          </div>
-          <div class="input-field col s12 m12 l6">
-            <label for="mdate">Tanggal Lahir</label>
-            <input type="text" name="birth_date" placeholder="Pilih Tanggal Lahir" id="mdate" required>
-          </div>
-          <div class="input-field col s12 m12 l6">
-            <label for="location">Tempat Lahir</label>
-            <input type="text" name="birth_location" placeholder="Tempat Lahir" id="location" required>
-          </div>
-          <div class="input-field col s6 m6 l3">
-            <label for="rt">RT</label>
-            <input type="text" name="rt" placeholder="RT" id="rt" required>
-          </div>
-          <div class="input-field col s6 m6 l3">
-            <label for="rw">RW</label>
-            <input type="text" name="rw" placeholder="RW" id="rw" required>
-          </div>
-          <div class="col s12 m12 l12 m-b-20">
-            <label for="gender">Jenis Kelamin</label>
-            <div class="row m-t-20">
-              <div class="col s6 m3 l2">
-                <label>
-                  <input name="gender" value="0" type="radio" required />
-                  <span>Laki laki</span>
-                </label>
-              </div>
-              <div class="col s6 m3 l2">
-                <label>
-                  <input name="gender" value="1" type="radio" />
-                  <span>Perempuan</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="input-field col s12 m12 l6">
-            <label for="province">Provinsi</label>
-            <input type="text" name="province" placeholder="Provinsi" id="province" required>
-          </div>
-          <div class="input-field col s12 m12 l6">
-            <label for="city">Kota/Kabupaten</label>
-            <input type="text" name="city" placeholder="Kota/Kabupaten" id="city" required>
-          </div>
-          <div class="input-field col s12 m12 l6">
-            <label for="district">Kecamatan</label>
-            <input type="text" name="district" placeholder="Kecamatan" id="district" required>
-          </div>
-          <div class="input-field col s12 m12 l6">
-            <label for="ward">Kelurahan</label>
-            <input type="text" name="ward" placeholder="Kelurahan" id="ward" required>
-          </div>
-          <div class="input-field col s12 m12 l6">
-            <label for="postal_code">Kode Pos</label>
-            <input type="text" name="postal_code" placeholder="Kode Pos" id="postal_code" required>
-          </div>
-          <div class="col s12 m12 l12 m-b-20">
-            <label for="ktp_status">Masa berlaku KTP</label>
-            <div class="row m-t-20">
-              <div class="col s6 m6 l3">
-                <label>
-                  <input name="ktp_status" value="1" type="radio" required />
-                  <span>KTP berlaku seumur hidup</span>
-                </label>
-              </div>
-              <div class="col s6 m6 l3">
-                <label>
-                  <input name="ktp_status" value="0" type="radio" />
-                  <span>KTP belum dicetak (Resi)</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="input-field col s12 m12 l6">
-            <label for="religion">Agama</label>
-            <input type="text" name="religion" placeholder="Agama" id="religion" required>
-          </div>
-          <div class="input-field col s12 m12 l6">
-            <label for="citizenship">Kewarganegaraan</label>
-            <input type="text" name="citizenship" placeholder="Kewarganegaraan" id="citizenship" required>
-          </div>
-          <div class="input-field col s12 m12 l6">
-            <label for="profession">Pekerjaan</label>
-            <input type="text" name="profession" placeholder="Pekerjaan" id="profession" required>
-          </div>
-          <div class="col s12 m12 l12" style="margin-top: 0 !important;">
-            <label for="status">Status Perkawinan</label>
-            <div class="row">
-              <div class="input-field col s4 m3 l2">
-                <label>
-                  <input name="status" value="menikah" type="radio" />
-                  <span>Menikah</span>
-                </label>
-              </div>
-              <div class="input-field col s4 m3 l2">
-                <label>
-                  <input name="status" value="bercerai" type="radio" />
-                  <span>Bercerai</span>
-                </label>
-              </div>
-              <div class="input-field col s4 m3 l3">
-                <label>
-                  <input name="status" value="belum menikah" type="radio" required />
-                  <span>Belum Menikah</span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="box-button m-t-40">
-          <button type="submit" class="btn waves-effect waves-light primary right">Next</button>
-        </div>
-      </form>
-=======
     <div class="card">
         <div class="card-content">
             <h5 class="card-title">Form Data Informasi tambahan & Usaha</h5>
+            <div class="row m-t-20">
+            <div class="input-field col s12 m12 l6">
+                        <label for="nama_usaha">Nama Usaha</label>
+            <input type="text" name="nama_usaha" placeholder="Nama Usaha" id="nama_usaha" required>
+          </div>
+          <div class="input-field col s12 m12 l6">
+                        <label for="alamat_usaha">Alamat Lengkap Usaha</label>
+            <input type="text" name="alamat_usaha" placeholder="Alamat Usaha" id="alamat_usaha" required>
+          </div>
+          <div class="input-field col s12 m12 l6">
+            <select required>
+                                                    <option value="" disabled selected>Pilih Lama Usaha</option>
+                                                    <option value="1">Kurang dari 1 Tahun</option>
+                                                    <option value="2">1 Tahun > 4 Tahun</option>
+                                                    <option value="3">4 Tahun Keatas</option>
+                                                </select>
+          </div>
+          <div class="input-field col s12 m12 l6">
+           <div class="file-field input-field" id="foto1">
+                                    <div class="btn teal darken-1">
+                                        <span>Foto Usaha</span>
+                                        <input type="file" name="foto_usaha" accept=".png,.jpeg,.jpg" required>
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" placeholder="Foto Outlet/Saat Berusaha" type="text">
+                                    </div>
+                                </div>
+          </div>
+          <div class="col s12 m12 l12 m-b-20">
+                        <label for="pendapatan_usaha">Pendapatan Usaha</label>
+            <form action="#">
+    <p>
+        <label>
+            <input class="with-gap" name="group1" type="radio"  />
+            <span>Kurang dari 1 Juta Rupiah</span>
+        </label>
+    </p>
+    <p>
+        <label>
+            <input class="with-gap" name="group1" type="radio"  />
+            <span>1 Juta Rupiah > 4 Juta Rupiah</span>
+        </label>
+    </p>
+    <p>
+        <label>
+            <input class="with-gap" name="group1" type="radio"  />
+            <span>Diatas 4 Juta Rupiah</span>
+        </label>
+    </p>
+</form>
+          </div>
+    <div class="input-field col s12 m12 l6">
+                        <label for="pembelian_usaha">Pembelian Usaha</label>
+            <input type="text" name="modal_dagang" placeholder="Modal Dagang (Dalam Rupiah)" id="rupiah" required>
+          </div>
+          <div class="input-field col s12 m12 l6">
+                        <label for="pengeluaran_usaha">Pengeluaran Usaha</label>
+            <input type="text" name="pengeluaran_usaha" placeholder="Biaya Tambahan dalam Usaha (Dalam Rupiah)" id="rupiah" required>
+          </div>
+                  <div class="box-button m-t-40">
+          <button type="submit" class="btn waves-effect waves-light primary right">Next</button>
+        </div>
         </div>
     </div>
->>>>>>> ccbdb6db1502aff5b34efc54ef25183a1f3629e9
 </div>
+<script>
+    var rupiah = document.getElementById('rupiah');
+    rupiah.addEventListener('keyup', function(e)
+    {
+        rupiah.value = formatRupiah(this.value, 'Rp. ');
+    });
+    
+    /* Fungsi */
+    function formatRupiah(angka, prefix)
+    {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split    = number_string.split(','),
+            sisa     = split[0].length % 3,
+            rupiah     = split[0].substr(0, sisa),
+            ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+            
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+        
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+    </script>
 @endsection
