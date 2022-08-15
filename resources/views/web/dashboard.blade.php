@@ -14,7 +14,7 @@
                 <div class="card-content">
                     <div class="d-flex no-block align-items-center">
                         <div>
-                            <h2 class="white-text m-b-5">0</h2>
+                            <h2 class="white-text m-b-5">{{ $totalNasabah }}</h2>
                             <h7 class="white-text op-5 light-blue-text">Data Nasabah</h7>
                         </div>
                         <div class="ml-auto">
@@ -30,7 +30,7 @@
                 <div class="card-content">
                     <div class="d-flex no-block align-items-center">
                         <div>
-                            <h2 class="white-text m-b-5">0</h2>
+                            <h2 class="white-text m-b-5">{{ $totalTransaksi }}</h2>
                             <h6 class="white-text op-5">Riwayat Transaksi</h6>
                         </div>
                         <div class="ml-auto">
@@ -47,7 +47,7 @@
                 <div class="card-content">
                     <div class="d-flex no-block align-items-center">
                         <div>
-                            <h2 class="white-text m-b-5">0</h2>
+                            <h2 class="white-text m-b-5">{{ $totalPengajuan }}</h2>
                             <h6 class="white-text op-5 text-darken-2">Hasil Pengajuan</h6>
                         </div>
                         <div class="ml-auto">
@@ -63,7 +63,7 @@
                 <div class="card-content">
                     <div class="d-flex no-block align-items-center">
                         <div>
-                            <h2 class="white-text m-b-5">0</h2>
+                            <h2 class="white-text m-b-5">{{ $totalBayar }}</h2>
                             <h8 class="white-text op-5">Pembayaran Selesai</h8>
                         </div>
                         <div class="ml-auto">
@@ -71,6 +71,34 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-content">
+            <h5 class="card-title">Transaksi Terkini</h5>
+            <div class="table-responsive m-b-20">
+                <table class="">
+                    <thead>
+                        <tr>
+                            <th>NIK</th>
+                            <th>Nama Nasabah</th>
+                            <th>Tanggal Pinjam</th>
+                            <th>Sisa Pembayaran</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if($riwayats->isEmpty())
+                        <tr>
+                            <td>No data available</td>
+                        </tr>
+                        @else
+
+                        @endif
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

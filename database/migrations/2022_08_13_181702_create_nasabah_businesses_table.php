@@ -17,6 +17,7 @@ class CreateNasabahBusinessesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('nasabah_id');
             $table->string('business_name', 200);
+            $table->tinyInteger('business_status')->comment('0: owner | 1: own parent | 2: lent')->nullable();
             $table->integer('average_price');
             $table->tinyInteger('average_sale');
             $table->tinyInteger('frequency_of_sales_days');
