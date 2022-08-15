@@ -32,9 +32,11 @@ Route::group(['middleware' => 'auth'], function() {
         Route::post('/foto', 'FrontendController@postDataFoto');
 
         Route::get('/usaha', 'FrontendController@inputDataUsaha');
+        Route::post('/usaha', 'FrontendController@postDataUsaha');
     });
 
     Route::get('/konfirmasi/data', 'FrontendController@konfirmasiData');
+    Route::post('/konfirmasi/data', 'FrontendController@confirmation');
 
 });
 

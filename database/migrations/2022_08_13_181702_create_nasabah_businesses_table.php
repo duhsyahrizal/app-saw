@@ -17,17 +17,16 @@ class CreateNasabahBusinessesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('nasabah_id');
             $table->string('business_name', 200);
-            $table->tinyInteger('business_status')->comment('0: owner | 1: own parent | 2: lent')->nullable();
-            $table->integer('average_price');
-            $table->tinyInteger('average_sale');
-            $table->tinyInteger('frequency_of_sales_days');
             $table->integer('operating_revenue');
             $table->tinyInteger('operating_margin');
-            $table->integer('turnover_income');
             $table->integer('business_fund');
+            $table->integer('net_income');
             $table->integer('other_income');
             $table->integer('non_business_expense');
             $table->integer('total_installment');
+            $table->integer('residual_income');
+            $table->integer('recommendation_loan');
+            $table->string('business_photo', 255);
             $table->timestamps();
 
             $table->foreign('nasabah_id')->references('id')->on('nasabahs')

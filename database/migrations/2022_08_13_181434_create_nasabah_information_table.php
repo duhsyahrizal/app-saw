@@ -32,14 +32,10 @@ class CreateNasabahInformationTable extends Migration
             $table->string('profession', 100)->nullable();
             $table->tinyInteger('status')->default(0)->comment('0: Belum menikah | 1: Menikah | 2: Bercerai');
             $table->string('postal_code', 10)->nullable();
-            $table->string('phone_number', 15)->nullable();
-            $table->string('email', 100)->nullable();
-            $table->string('nickname', 50)->nullable();
-            $table->string('mother_name', 100)->nullable();
-            $table->string('identity_photo', 255)->nullable();
-            $table->string('parent_photo', 255)->nullable();
-            $table->string('account_photo', 255)->nullable();
-            $table->string('face_photo', 255)->nullable();
+            $table->string('selfi_photo', 255)->nullable();
+            $table->string('ktp_photo', 255)->nullable();
+            $table->string('savings_photo', 255)->nullable();
+            $table->string('face_with_ktp_photo', 255)->nullable();
             $table->timestamps();
 
             $table->foreign('nasabah_id')->references('id')->on('nasabahs')
