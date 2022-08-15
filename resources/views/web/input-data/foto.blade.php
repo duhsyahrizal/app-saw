@@ -8,6 +8,7 @@
                 <div class="card-content">
                     <h5 class="card-title">Form Ambil Foto</h5>
                     <form method="POST" action="/input/data/foto" style="padding-top: .75rem !important;">
+                        @csrf
                         <div class="row">
                             <div class="input-field col s12 m12 l6">
                                 <div class="file-field input-field" id="foto1">
