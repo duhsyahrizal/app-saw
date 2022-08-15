@@ -15,12 +15,12 @@ class ApiController extends Controller
         $data       = array();
 
         foreach($nasabah as $item) {
-            $status = $item->status == 1 ? 'Approved' : 'Rejected';
+            $status = $item->status == 1 ? '<span class="new badge green" data-badge-caption="">Approved</span>' : '<span class="new badge red" data-badge-caption="">Rejected</span>';
 
             $data[] = [
                 $item->name_by_identity,
                 $item->nik,
-                $item->status == 0 ? 'Not Action' : $status,
+                $item->status == 0 ? '<span class="new badge orange" data-badge-caption="">Not Action</span>' : $status,
             ];
         }
 
