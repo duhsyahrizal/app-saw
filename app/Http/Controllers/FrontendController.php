@@ -45,20 +45,23 @@ class FrontendController extends Controller
 
     public function postDataNasabah(Request $request)
     {
-        $messages = [
-            'name'  => 'Nama tidak boleh lebih dari :min digit',
-            'nik'   => 'NIK harus kurang dari :max digit',
-        ];
-
-        $isValidate = Validator::make($request->all(), [
+        $rules      = [
             'name'  => 'required|max:100|min:10',
             'nik'   => 'required|max:16'
-        ], $messages);
+        ];
 
-        if($isValidate->fails()) {
+        // Validasi nama & nik
+        $isValidate = $request->validate($rules);
+
+        $isExist    = Nasabah::where([
+            'name_by_identity'  => $request->name,
+            'nik'               => $request->nik
+        ])->first();
+
+        // check nama & nik apakah sudah ada, apabila sudah ada maka dikembalikan ke menu input
+        if($isExist) {
             return redirect()->back()
-                ->withErrors($isValidate)
-                ->withInput();
+                ->withErrors('Nasabah dengan NIK '. $isExist->nik .' sudah ada!');
         }
 
         $isCreated  = Nasabah::create([
@@ -66,11 +69,13 @@ class FrontendController extends Controller
             'nik'               => $request->nik
         ]);
 
+        // apabila nasabah tidak berhasil dibuat, maka dikembalikan juga ke menu input
         if(!$isCreated) {
             return redirect()->back()
                 ->withErrors('Failed when created nasabah!');
         }
 
+        // nasabah berhasil dibuat
         return redirect('/nasabah')
             ->withSuccess('Success created data nasabah!');
     }
@@ -93,7 +98,6 @@ class FrontendController extends Controller
     public function inputDataFoto()
     {
         $data['menu']   = 'Input Persyaratan Nasabah - Ambil Foto';
-        // dd(session()->get('foto1'));
 
         return view('web.input-data.foto', $data);
     }
@@ -103,7 +107,7 @@ class FrontendController extends Controller
         $photos = array();
 
         foreach($request->file() as $file) {
-            $file->move('/temp/photos/', $file->getClientOriginalName());
+            $file->move(public_path('/temp/photos/'), $file->getClientOriginalName());
             $photos['path'][] = '/temp/photos/' . $file->getClientOriginalName();
         }
         
@@ -127,4 +131,10 @@ class FrontendController extends Controller
 
         return view('web.input-data.konfirmasi', $data);
     }
+
+    public function confirmation(Request $request)
+    {
+        dd($request->all());
+    }
+
 }

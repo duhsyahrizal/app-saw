@@ -128,7 +128,7 @@
           </div>
         </div>
         <div class="box-button m-t-40">
-          <button type="submit" class="btn waves-effect waves-light primary right">Next</button>
+          <button type="submit" class="btn waves-effect waves-light primary">Next</button>
         </div>
       </form>
     </div>
