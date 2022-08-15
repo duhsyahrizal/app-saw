@@ -16,7 +16,7 @@
                                         <input type="file" name="foto1" accept=".png,.jpeg,.jpg" required>
                                     </div>
                                     <div class="file-path-wrapper">
-                                        <input class="file-path validate" placeholder="Foto diri sendiri" type="text">
+                                        <input class="file-path validate" placeholder="Foto Selfi" type="text">
                                     </div>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                                         <input type="file" name="foto2" accept=".png,.jpeg,.jpg" required>
                                     </div>
                                     <div class="file-path-wrapper">
-                                        <input class="file-path validate" placeholder="Foto orang tua" type="text">
+                                        <input class="file-path validate" placeholder="Foto KTP" type="text">
                                     </div>
                                 </div>
                             </div>
@@ -38,25 +38,25 @@
                                         <input type="file" name="foto3" accept=".png,.jpeg,.jpg" required>
                                     </div>
                                     <div class="file-path-wrapper">
-                                        <input class="file-path validate" placeholder="Foto tabungan" type="text">
+                                        <input class="file-path validate" placeholder="Foto Tabungan" type="text">
                                     </div>
                                 </div>
                             </div>
                             <div class="input-field col s12 m12 l6">
-                                <div class="file-field input-field" id="foto4">
+                                <div class="file-field input-field" id="foto3">
                                     <div class="btn cyan darken-1">
                                         <span>Foto</span>
                                         <input type="file" name="foto4" accept=".png,.jpeg,.jpg" required>
                                     </div>
                                     <div class="file-path-wrapper">
-                                        <input class="file-path validate" placeholder="Foto bersama tabungan"
+                                        <input class="file-path validate" placeholder="Foto Selfi & Tabungan"
                                             type="text">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="box-button">
-                            <button type="submit" class="btn waves-effect waves-light primary right">Submit</button>
+                            <button type="submit" class="btn waves-effect waves-light primary right">Next</button>
                         </div>
                     </form>
                 </div>
