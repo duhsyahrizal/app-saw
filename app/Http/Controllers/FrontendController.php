@@ -93,17 +93,22 @@ class FrontendController extends Controller
     public function inputDataFoto()
     {
         $data['menu']   = 'Input Persyaratan Nasabah - Ambil Foto';
+        // dd(session()->get('foto1'));
 
         return view('web.input-data.foto', $data);
     }
 
     public function postDataFoto(Request $request)
     {
+        $photos = array();
+
+        foreach($request->file() as $file) {
+            $file->move('/temp/photos/', $file->getClientOriginalName());
+            $photos['path'][] = '/temp/photos/' . $file->getClientOriginalName();
+        }
+        
         $request->session()->put([
-            'foto1'  => $request->foto1,
-            'foto2'  => $request->foto2,
-            'foto3'  => $request->foto3,
-            'foto4'  => $request->foto4,
+            'photos'    => $photos
         ]);
 
         return redirect('/input/data/usaha');
@@ -112,6 +117,7 @@ class FrontendController extends Controller
     public function inputDataUsaha(Request $request)
     {
         $data['menu']   = 'Input Persyaratan - Isi Informasi Tambahan & Data Usaha';
+        dd(\Session::all());
 
         return view('web.input-data.usaha', $data);
     }
