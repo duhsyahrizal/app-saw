@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="box-button">
-                            <button type="submit" class="btn waves-effect waves-light primary right">Submit</button>
+                            <button type="submit" class="btn waves-effect waves-light primary right">Next</button>
                         </div>
                     </form>
                 </div>
