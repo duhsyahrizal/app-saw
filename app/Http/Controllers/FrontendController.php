@@ -5,12 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\Nasabah;
+use App\Models\Riwayat;
+use App\Models\Result;
 
 class FrontendController extends Controller
 {
     public function index()
     {
         $data['menu']   = 'Dashboard';
+        $data['totalNasabah']   = Nasabah::count();
+        $data['totalTransaksi'] = Riwayat::count();
+        $data['totalPengajuan'] = Result::where('is_approved', true)->count();
+        $data['totalBayar']     = Riwayat::where('is_paid', true)->count();
+        $data['riwayats']       = Riwayat::get();
         
         return view('web.dashboard', $data);
     }
@@ -70,24 +77,31 @@ class FrontendController extends Controller
 
     public function inputDataInformasi(Request $request)
     {
-        $data['menu']       = 'Input Persyaratan Nasabah';
+        $data['menu']       = 'Input Persyaratan Nasabah - Data Calon Anggota';
         $data['nasabah']    = Nasabah::get();
 
         return view('web.input-data.informasi', $data);
     }
 
+    public function postDataInformasi(Request $request)
+    {
+        $request->session()->put(['information' => $request->all()]);
+        
+        return redirect('/input/data/foto');
+    }
+
     public function inputDataFoto(Request $request)
     {
-        $data['menu']   = 'Input Data Foto';
+        $data['menu']   = 'Input Persyaratan Nasabah - Ambil Foto';
 
         return view('web.input-data.foto', $data);
     }
 
-    public function inputDataPenghasilan(Request $request)
+    public function inputDataUsaha(Request $request)
     {
-        $data['menu']   = 'Input Data Penghasilan';
+        $data['menu']   = 'Input Data Usaha';
 
-        return view('web.input-data.penghasilan', $data);
+        return view('web.input-data.usaha', $data);
     }
 
     public function konfirmasiData(Request $request)

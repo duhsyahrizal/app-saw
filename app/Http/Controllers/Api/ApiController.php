@@ -21,7 +21,6 @@ class ApiController extends Controller
                 $item->name_by_identity,
                 $item->nik,
                 $item->status == 0 ? 'Not Action' : $status,
-                ''
             ];
         }
 

@@ -26,8 +26,11 @@ Route::group(['middleware' => 'auth'], function() {
         Route::post('/nasabah', 'FrontendController@postDataNasabah');
 
         Route::get('/informasi', 'FrontendController@inputDataInformasi');
+        Route::post('/informasi', 'FrontendController@postDataInformasi');
 
         Route::get('/foto', 'FrontendController@inputDataFoto');
+        Route::post('/foto', 'FrontendController@postDataFoto');
+
         Route::get('/penghasilan', 'FrontendController@inputDataPenghasilan');
     });
 
