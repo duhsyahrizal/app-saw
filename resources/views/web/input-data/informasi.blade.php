@@ -9,7 +9,7 @@
         @csrf
         <div class="row m-t-20">
           <div class="input-field col s12 m12 l6">
-            <select id="nasabah" name="nasabah_id">
+            <select id="nasabah" name="nasabah_id" required>
               <option value="" disabled selected>Pilih Nasabah</option>
               @foreach($nasabah as $item)
               <option value="{{ $item->id }}">{{ $item->nik . ' - ' . $item->name_by_identity }}</option>
@@ -19,30 +19,30 @@
           </div>
           <div class="input-field col s12 m12 l6">
             <label for="address">Alamat sesuai KTP</label>
-            <input type="text" name="address" placeholder="Masukkan Alamat" id="address">
+            <input type="text" name="address" placeholder="Masukkan Alamat" id="address" required>
           </div>
           <div class="input-field col s12 m12 l6">
             <label for="mdate">Tanggal Lahir</label>
-            <input type="text" name="birth_date" placeholder="Pilih Tanggal Lahir" id="mdate">
+            <input type="text" name="birth_date" placeholder="Pilih Tanggal Lahir" id="mdate" required>
           </div>
           <div class="input-field col s12 m12 l6">
             <label for="location">Tempat Lahir</label>
-            <input type="text" name="birth_location" placeholder="Tempat Lahir" id="location">
+            <input type="text" name="birth_location" placeholder="Tempat Lahir" id="location" required>
           </div>
           <div class="input-field col s6 m6 l3">
             <label for="rt">RT</label>
-            <input type="text" name="rt" placeholder="RT" id="rt">
+            <input type="text" name="rt" placeholder="RT" id="rt" required>
           </div>
           <div class="input-field col s6 m6 l3">
             <label for="rw">RW</label>
-            <input type="text" name="rw" placeholder="RW" id="rw">
+            <input type="text" name="rw" placeholder="RW" id="rw" required>
           </div>
           <div class="col s12 m12 l12 m-b-20">
             <label for="gender">Jenis Kelamin</label>
             <div class="row m-t-20">
               <div class="col s6 m3 l2">
                 <label>
-                  <input name="gender" value="0" type="radio" />
+                  <input name="gender" value="0" type="radio" required />
                   <span>Laki laki</span>
                 </label>
               </div>
@@ -56,30 +56,30 @@
           </div>
           <div class="input-field col s12 m12 l6">
             <label for="province">Provinsi</label>
-            <input type="text" name="province" placeholder="Provinsi" id="province">
+            <input type="text" name="province" placeholder="Provinsi" id="province" required>
           </div>
           <div class="input-field col s12 m12 l6">
             <label for="city">Kota/Kabupaten</label>
-            <input type="text" name="city" placeholder="Kota/Kabupaten" id="city">
+            <input type="text" name="city" placeholder="Kota/Kabupaten" id="city" required>
           </div>
           <div class="input-field col s12 m12 l6">
             <label for="district">Kecamatan</label>
-            <input type="text" name="district" placeholder="Kecamatan" id="district">
+            <input type="text" name="district" placeholder="Kecamatan" id="district" required>
           </div>
           <div class="input-field col s12 m12 l6">
-            <label for="sub_district">Kelurahan</label>
-            <input type="text" name="sub_district" placeholder="Kelurahan" id="sub_district">
+            <label for="ward">Kelurahan</label>
+            <input type="text" name="ward" placeholder="Kelurahan" id="ward" required>
           </div>
           <div class="input-field col s12 m12 l6">
             <label for="postal_code">Kode Pos</label>
-            <input type="text" name="postal_code" placeholder="Kode Pos" id="postal_code">
+            <input type="text" name="postal_code" placeholder="Kode Pos" id="postal_code" required>
           </div>
           <div class="col s12 m12 l12 m-b-20">
             <label for="ktp_status">Masa berlaku KTP</label>
             <div class="row m-t-20">
               <div class="col s6 m6 l3">
                 <label>
-                  <input name="ktp_status" value="1" type="radio" />
+                  <input name="ktp_status" value="1" type="radio" required />
                   <span>KTP berlaku seumur hidup</span>
                 </label>
               </div>
@@ -93,15 +93,15 @@
           </div>
           <div class="input-field col s12 m12 l6">
             <label for="religion">Agama</label>
-            <input type="text" name="religion" placeholder="Agama" id="religion">
+            <input type="text" name="religion" placeholder="Agama" id="religion" required>
           </div>
           <div class="input-field col s12 m12 l6">
             <label for="citizenship">Kewarganegaraan</label>
-            <input type="text" name="citizenship" placeholder="Kewarganegaraan" id="citizenship">
+            <input type="text" name="citizenship" placeholder="Kewarganegaraan" id="citizenship" required>
           </div>
           <div class="input-field col s12 m12 l6">
             <label for="profession">Pekerjaan</label>
-            <input type="text" name="profession" placeholder="Pekerjaan" id="profession">
+            <input type="text" name="profession" placeholder="Pekerjaan" id="profession" required>
           </div>
           <div class="col s12 m12 l12" style="margin-top: 0 !important;">
             <label for="status">Status Perkawinan</label>
@@ -120,7 +120,7 @@
               </div>
               <div class="input-field col s4 m3 l3">
                 <label>
-                  <input name="status" value="belum menikah" type="radio" />
+                  <input name="status" value="belum menikah" type="radio" required />
                   <span>Belum Menikah</span>
                 </label>
               </div>
