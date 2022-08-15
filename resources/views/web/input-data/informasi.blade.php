@@ -26,5 +26,12 @@
       </form>
     </div>
   </div>
+    <script src="../../assets/libs/pickadate/lib/compressed/picker.js"></script>
+    <script src="../../assets/libs/pickadate/lib/compressed/picker.date.js"></script>
+    <script src="../../assets/libs/pickadate/lib/compressed/picker.time.js"></script>
+    <script src="../../assets/libs/pickadate/lib/compressed/legacy.js"></script>
+    <script src="../../assets/libs/moment/moment.js"></script>
+    <script src="../../assets/libs/daterangepicker/daterangepicker.js"></script>
+    <script src="../../dist/js/pages/forms/datetimepicker/datetimepicker.init.js"></script>
 </div>
 @endsection
