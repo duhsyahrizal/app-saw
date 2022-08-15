@@ -2,6 +2,7 @@
 
 @section('main-page')
 <div class="container-fluid">
+<<<<<<< HEAD
 <div class="container-fluid">
   <div class="card">
     <div class="card-content">
@@ -132,5 +133,12 @@
           <button type="submit" class="btn waves-effect waves-light primary right">Next</button>
         </div>
       </form>
+=======
+    <div class="card">
+        <div class="card-content">
+            <h5 class="card-title">Form Data Informasi tambahan & Usaha</h5>
+        </div>
+    </div>
+>>>>>>> ccbdb6db1502aff5b34efc54ef25183a1f3629e9
 </div>
 @endsection
