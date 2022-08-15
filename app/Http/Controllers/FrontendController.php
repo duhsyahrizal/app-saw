@@ -117,7 +117,6 @@ class FrontendController extends Controller
     public function inputDataUsaha(Request $request)
     {
         $data['menu']   = 'Input Persyaratan - Isi Informasi Tambahan & Data Usaha';
-        dd(\Session::all());
 
         return view('web.input-data.usaha', $data);
     }
