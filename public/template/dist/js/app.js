@@ -215,8 +215,9 @@ $.fn.AdminSettings = function(settings) {
                             //$("#main-wrapper").attr("data-sidebartype","mini-sidebar");
 
                         } else {
-                            //$(".nav-toggle").prop("checked", !1);
-                            //$("#main-wrapper").attr("data-sidebartype","iconbar");
+                            $(".nav-toggle").prop("checked", !1);
+                            $("#main-wrapper").attr("data-sidebartype","iconbar");
+                            console.log(true)
                         }
                     });
                     break;

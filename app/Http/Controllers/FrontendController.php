@@ -169,7 +169,7 @@ class FrontendController extends Controller
         $plafondC       = $totalPendapatan - $modalUsaha;
         $plafondE       = $plafondC - $pengeluaranUsaha;
         $plafondSisa    = (($plafondE + $pendapatanLainnya) - $pengeluaranLainnya) - $totalAngsuran;
-        $plafondI       = (int)($plafondSisa/2.5);
+        $plafondI       = (int)($plafondSisa * $plafondBobot);
 
         $request->session()->put([
             'remaining_treasure' => $plafondSisa,
