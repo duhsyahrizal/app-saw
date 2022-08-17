@@ -310,6 +310,7 @@ class FrontendController extends Controller
                 ]);
         }
         
+        // perhitungan jumlah usia diambil dari tahun lahir sesuai KTP nasabah
         $usia           = (int)(\Carbon\Carbon::now()->format('Y')) - (int)(\Carbon\Carbon::parse(session('information')['birth_date'])->format('Y'));
 
         $bobotPlafond   = Nasabah::getPointBobot('plafond', session('remaining_treasure'));
