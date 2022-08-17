@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Models\Nasabah;
 use App\Models\Riwayat;
-use App\Models\Result;
 use App\Models\NasabahInformation;
 use App\Models\NasabahBusiness;
 
@@ -17,7 +16,7 @@ class FrontendController extends Controller
         $data['menu']   = 'Dashboard';
         $data['totalNasabah']   = Nasabah::count();
         $data['totalTransaksi'] = Riwayat::count();
-        $data['totalPengajuan'] = Result::where('is_approved', true)->count();
+        $data['totalPengajuan'] = Nasabah::where('status', true)->count();
         $data['totalBayar']     = Riwayat::where('is_paid', true)->count();
         $data['nasabahs']       = Nasabah::whereHas('riwayat')->orderBy('created_at', 'DESC')->get();
         
@@ -165,7 +164,7 @@ class FrontendController extends Controller
 
         
         // get point bobot 40%
-        $plafondBobot   = Result::getPointBobot()['plafond']['bobot'];
+        $plafondBobot   = Nasabah::getPointBobot()['plafond']['bobot'];
 
         $plafondC       = $totalPendapatan - $modalUsaha;
         $plafondE       = $plafondC - $pengeluaranUsaha;
@@ -225,7 +224,7 @@ class FrontendController extends Controller
         $data['plafond']    = NasabahBusiness::where('nasabah_id', session('information')['nasabah_id'])->first();
 
         // get point bobot 40%
-        $plafondBobot   = Result::getPointBobot()['plafond']['bobot'];
+        $plafondBobot   = Nasabah::getPointBobot()['plafond']['bobot'];
 
         $plafondSisa            = (($data['plafond']['net_income'] + $data['plafond']['other_income']) - $data['plafond']['non_business_expense']) - $data['plafond']['total_installment'];
         $data['nilaiAngsuran']  = $this->formatRupiah($data['plafond']['recommendation_installment']);
@@ -313,10 +312,10 @@ class FrontendController extends Controller
         
         $usia           = (int)(\Carbon\Carbon::now()->format('Y')) - (int)(\Carbon\Carbon::parse(session('information')['birth_date'])->format('Y'));
 
-        $bobotPlafond   = Result::getPointBobot('plafond', session('remaining_treasure'));
-        $bobotUsia      = Result::getPointBobot('usia', $usia);
-        $bobotStatus    = Result::getPointBobot('status', session('information')['status']);
-        $bobotLamaUsaha = Result::getPointBobot('lama_usaha', session('business_information')['business_age']);
+        $bobotPlafond   = Nasabah::getPointBobot('plafond', session('remaining_treasure'));
+        $bobotUsia      = Nasabah::getPointBobot('usia', $usia);
+        $bobotStatus    = Nasabah::getPointBobot('status', session('information')['status']);
+        $bobotLamaUsaha = Nasabah::getPointBobot('lama_usaha', session('business_information')['business_age']);
 
         $data   = [
             'plafond'       => [
@@ -337,19 +336,13 @@ class FrontendController extends Controller
             ],
         ];
 
-        $result = Result::calculateSaw($data);
+        $result = Nasabah::calculateSaw($data);
 
         if($result < 80) {
-            Result::create([
-                'nasabah_id'    => $nasabah->id,
-                'borrow_date'   => \Carbon\Carbon::now()->format('Y-m-d'),
-                'is_approved'   => false,
-                'fuzzy_result'  => $result
-            ]);
-
             // update status nasabah ketika reject
             Nasabah::where('id', $nasabah->id)->update([
-                'status' => 2
+                'status'        => 2,
+                'fuzzy_result'  => $result
             ]);
 
             return redirect('/nasabah')->with([
@@ -360,14 +353,7 @@ class FrontendController extends Controller
 
         // update status nasabah ketika sudah approve
         Nasabah::where('id', $nasabah->id)->update([
-            'status' => true
-        ]);
-
-        // buat hasil fuzzy untuk nasabah yang baru dibuat
-        Result::create([
-            'nasabah_id'    => $nasabah->id,
-            'borrow_date'   => \Carbon\Carbon::now()->format('Y-m-d'),
-            'is_approved'   => true,
+            'status'        => true,
             'fuzzy_result'  => $result
         ]);
 

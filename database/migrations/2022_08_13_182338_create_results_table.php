@@ -18,7 +18,6 @@ class CreateResultsTable extends Migration
             $table->unsignedInteger('nasabah_id');
             $table->date('borrow_date')->default(\Carbon\Carbon::now());
             $table->boolean('is_approved')->default(0);
-            $table->double('fuzzy_result');
             $table->timestamps();
 
             $table->foreign('nasabah_id')->references('id')->on('nasabahs')
