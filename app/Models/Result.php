@@ -38,12 +38,10 @@ class Result extends Model
         if($pointName == 'usia') {
             $data[$pointName]['point'] = 1;
 
-            if($value > 35 && $value < 40) {
+            if($value > 30 && $value < 40) {
                 $data[$pointName]['point'] = 2;
-            } else if($value > 30 && $value < 35) {
+            } else if($value < 30 && $value > 20) {
                 $data[$pointName]['point'] = 3;
-            } else if($value < 30) {
-                $data[$pointName]['point'] = 4;
             }
         } else if($pointName == 'plafond') {
             $data[$pointName]['point'] = 1;

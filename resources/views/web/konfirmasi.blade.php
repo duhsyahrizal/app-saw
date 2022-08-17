@@ -87,7 +87,15 @@
                 </div>
                 <div class="row p-b-10">
                     <div class="col s12 m12 l6">
-                        Rekomendasi nilai pengajuan (I)
+                        Rekomendasi nilai angsuran (I)
+                    </div>
+                    <div class="col s12 m12 l6">
+                        {{ $nilaiAngsuran }}
+                    </div>
+                </div>
+                <div class="row p-b-10">
+                    <div class="col s12 m12 l6">
+                        Rekomendasi nilai pengajuan
                     </div>
                     <div class="col s12 m12 l6">
                         {{ $nilaiPengajuan }}

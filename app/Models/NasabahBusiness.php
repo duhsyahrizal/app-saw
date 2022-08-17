@@ -21,6 +21,7 @@ class NasabahBusiness extends Model
         'non_business_expense',
         'total_installment',
         'recommendation_loan',
+        'recommendation_installment',
         'business_photo'
     ];
 

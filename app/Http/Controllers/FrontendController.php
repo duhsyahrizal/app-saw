@@ -98,7 +98,7 @@ class FrontendController extends Controller
     public function inputDataInformasi(Request $request)
     {
         $data['menu']       = 'Input Persyaratan Nasabah - Data Calon Anggota';
-        $data['nasabah']    = Nasabah::get();
+        $data['nasabah']    = Nasabah::where('status', 0)->orWhere('status', 2)->get();
 
         return view('web.input-data.informasi', $data);
     }
@@ -170,13 +170,7 @@ class FrontendController extends Controller
         $plafondC       = $totalPendapatan - $modalUsaha;
         $plafondE       = $plafondC - $pengeluaranUsaha;
         $plafondSisa    = (($plafondE + $pendapatanLainnya) - $pengeluaranLainnya) - $totalAngsuran;
-        $calculate      = ($plafondSisa * $plafondBobot);
-        $plafondI       = $calculate/108.34;
-
-        // pembulatan apabila kurang 0.5 akan jadi 0 dan lebih dari 0.5 akan jadi 1
-        $nilaiPembulatan        = substr($plafondI, 1, 2);
-        $digitPertama           = substr($plafondI, 0, 1);
-        $resultPengajuan        = $nilaiPembulatan > 50 ? $digitPertama + 1 : $digitPertama - 1;
+        $plafondI       = (int)($plafondSisa/2.5);
 
         $request->session()->put([
             'remaining_treasure' => $plafondSisa,
@@ -189,34 +183,36 @@ class FrontendController extends Controller
         if(!$businessExist) {
             // membuat nasabah informasi bersama dengan foto
             NasabahBusiness::create([
-                'nasabah_id'            => $informations['nasabah_id'],
-                'business_name'         => $businesses['business_name'],
-                'business_address'      => $businesses['business_address'],
-                'operating_revenue'     => $totalPendapatan,
-                'business_fund'         => $modalUsaha,
-                'net_income'            => $plafondE,
-                'other_income'          => $pendapatanLainnya,
-                'business_expense'      => $pengeluaranUsaha,
-                'non_business_expense'  => $pengeluaranLainnya,
-                'total_installment'     => $totalAngsuran,
-                'recommendation_loan'   => $resultPengajuan . '000000',
-                'business_photo'        => session()->get('business_photo'),
+                'nasabah_id'                    => $informations['nasabah_id'],
+                'business_name'                 => $businesses['business_name'],
+                'business_address'              => $businesses['business_address'],
+                'operating_revenue'             => $totalPendapatan,
+                'business_fund'                 => $modalUsaha,
+                'net_income'                    => $plafondE,
+                'other_income'                  => $pendapatanLainnya,
+                'business_expense'              => $pengeluaranUsaha,
+                'non_business_expense'          => $pengeluaranLainnya,
+                'total_installment'             => $totalAngsuran,
+                'recommendation_loan'           => $plafondI*4,
+                'recommendation_installment'    => $plafondI,
+                'business_photo'                => session()->get('business_photo'),
             ]);
         } else {
             // update nasabah informasi apabila data sudah ada
             NasabahBusiness::where('nasabah_id', $informations['nasabah_id'])
                 ->update([
-                    'business_name'         => $businesses['business_name'],
-                    'business_address'      => $businesses['business_address'],
-                    'operating_revenue'     => $totalPendapatan,
-                    'business_fund'         => $modalUsaha,
-                    'net_income'            => $plafondE,
-                    'other_income'          => $pendapatanLainnya,
-                    'business_expense'      => $pengeluaranUsaha,
-                    'non_business_expense'  => $pengeluaranLainnya,
-                    'total_installment'     => $totalAngsuran,
-                    'recommendation_loan'   => $resultPengajuan,
-                    'business_photo'        => session()->get('business_photo'),
+                    'business_name'                 => $businesses['business_name'],
+                'business_address'              => $businesses['business_address'],
+                'operating_revenue'             => $totalPendapatan,
+                'business_fund'                 => $modalUsaha,
+                'net_income'                    => $plafondE,
+                'other_income'                  => $pendapatanLainnya,
+                'business_expense'              => $pengeluaranUsaha,
+                'non_business_expense'          => $pengeluaranLainnya,
+                'total_installment'             => $totalAngsuran,
+                'recommendation_loan'           => $plafondI*4,
+                'recommendation_installment'    => $plafondI,
+                'business_photo'                => session()->get('business_photo'),
                 ]);
         }
 
@@ -231,15 +227,9 @@ class FrontendController extends Controller
         // get point bobot 40%
         $plafondBobot   = Result::getPointBobot()['plafond']['bobot'];
 
-        $plafondSisa    = (($data['plafond']['net_income'] + $data['plafond']['other_income']) - $data['plafond']['non_business_expense']) - $data['plafond']['total_installment'];
-        $calculate      = ($plafondSisa * $plafondBobot);
-        $plafondI       = $calculate/108.34;
-
-        // pembulatan apabila kurang 0.5 akan jadi 0 dan lebih dari 0.5 akan jadi 1
-        $nilaiPembulatan        = substr($plafondI, 1, 2);
-        $digitPertama           = substr($plafondI, 0, 1);
-        $resultPengajuan        = $nilaiPembulatan > 50 ? $digitPertama + 1 : $digitPertama - 1;
-        $data['nilaiPengajuan'] = $this->formatRupiah($resultPengajuan . '000000');
+        $plafondSisa            = (($data['plafond']['net_income'] + $data['plafond']['other_income']) - $data['plafond']['non_business_expense']) - $data['plafond']['total_installment'];
+        $data['nilaiAngsuran']  = $this->formatRupiah($data['plafond']['recommendation_installment']);
+        $data['nilaiPengajuan'] = $this->formatRupiah($data['plafond']['recommendation_loan']);
         $data['plafondSisa']    = $this->formatRupiah($plafondSisa);
 
         return view('web.konfirmasi', $data);

@@ -26,6 +26,7 @@ class CreateNasabahBusinessesTable extends Migration
             $table->integer('non_business_expense');
             $table->integer('total_installment');
             $table->integer('recommendation_loan');
+            $table->integer('recommendation_installment');
             $table->string('business_photo', 255);
             $table->timestamps();
 
