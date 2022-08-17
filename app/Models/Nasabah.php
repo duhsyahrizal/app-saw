@@ -24,11 +24,6 @@ class Nasabah extends Model
         return $this->hasOne(NasabahBusiness::class);
     }
 
-    public function result()
-    {
-        return $this->hasOne(Result::class);
-    }
-
     public function riwayat()
     {
         return $this->hasOne(Riwayat::class);
