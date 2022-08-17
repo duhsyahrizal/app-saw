@@ -101,9 +101,9 @@
                             <td>{{ $item->name_by_identity }}</td>
                             <td>{{ \Carbon\Carbon::parse($item->borrow_date)->format('d-m-Y') }}</td>
                             <td>{{ 'Rp. ' . number_format($item->riwayat->remaining_payment, 0, '', '.') }}</td>
-                            <td><span class="new badge {{ $item->result->is_approved ? 'green' : 'red' }}"
-                                    data-badge-caption="">{{ $item->result->is_approved ? 'Approved' :
-                                    'Rejected' }}</span></td>
+                            <td><span class="new badge {{ $item->riwayat->is_paid ? 'green' : 'red' }}"
+                                    data-badge-caption="">{{ $item->riwayat->is_approved ? 'Paid' :
+                                    'Not Paid' }}</span></td>
                         </tr>
                         @endforeach
                         @endif
