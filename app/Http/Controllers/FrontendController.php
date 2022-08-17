@@ -67,7 +67,7 @@ class FrontendController extends Controller
                 ->withErrors('Nasabah dengan NIK '. $isExist->nik .' sudah ada!');
         }
 
-        if(is_int($request->nik) === false) {
+        if(strlen((int)$request->nik) != strlen($request->nik)) {
             return redirect()->back()
                 ->withErrors('Maaf, NIK anda tidak boleh mengandung huruf!');
         }
