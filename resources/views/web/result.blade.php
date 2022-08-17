@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-content">
             <h5 class="card-title">Hasil Penilaian</h5>
-            <table id="datatable" class="responsive-table" style="width: 100%;">
+            <table id="datatable" class="responsive-table display" style="width: 100%;">
                 <thead class="primary white-text">
                     <tr>
                         <th>Nama Nasabah</th>

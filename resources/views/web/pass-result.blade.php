@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-content">
             <h5 class="card-title">Hasil Kelolosan</h5>
-            <table id="datatable" class="responsive-table display">
+            <table id="datatable" class="responsive-table display" style="width: 100%;">
                 <thead class="primary white-text">
                     <tr>
                         <th>No</th>
