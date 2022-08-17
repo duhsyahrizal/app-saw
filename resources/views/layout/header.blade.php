@@ -108,8 +108,8 @@
               <div class="dw-user-box">
                 <div class="u-img"><img src="/template/assets/images/users/2.jpg" alt="user"></div>
                 <div class="u-text">
-                  <h4>Steve Harvey</h4>
-                  <p>steve@gmail.com</p>
+                  <h4>{{ \Auth::user()->name }}</h4>
+                  <p>{{ \Auth::user()->email }}</p>
                   <a class="waves-effect waves-light btn-small red white-text">View Profile</a>
                 </div>
               </div>
