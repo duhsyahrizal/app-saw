@@ -11,7 +11,7 @@
                         <th>Nama Nasabah</th>
                         <th>NIK</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
             </table>
