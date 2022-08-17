@@ -359,7 +359,9 @@ class FrontendController extends Controller
         }
 
         // update status nasabah ketika sudah approve
-        Nasabah::where('id', $nasabah->id)->update(['status', 1]);
+        Nasabah::where('id', $nasabah->id)->update([
+            'status' => true
+        ]);
 
         // buat hasil fuzzy untuk nasabah yang baru dibuat
         Result::create([
