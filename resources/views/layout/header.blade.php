@@ -11,9 +11,9 @@
         <span class="icon">
           <img class="dark-logo" src="/template/assets/images/logo.jpeg" width="40">
         </span>
-        <span class="text" style="color: #444; margin-left: .625rem; font-size: 16px !important; font-weight: bold;">
+        <div class="text" style="color: #444; margin-left: .625rem; font-size: 16px !important; font-weight: bold;">
           AIS System
-        </span>
+        </div>
       </a>
       <!-- ============================================================== -->
       <!-- Logo you can find that scss in header.scss -->

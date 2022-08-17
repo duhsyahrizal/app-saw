@@ -5,7 +5,7 @@
     <ul id="slide-out" class="sidenav">
         <li>
             <ul class="collapsible">
-                <li class="small-cap"><span class="hide-menu">MAIN MENU</span></li>
+                <li class="small-cap"><span class="hide-menu">MENU</span></li>
                 <li>
                     <a href="/" class="collapsible-header">
                         <i class="material-icons">dashboard</i><span class="hide-menu"> Dashboard </span>
