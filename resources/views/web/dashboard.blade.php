@@ -82,8 +82,8 @@
                 <table>
                     <thead class="primary white-text">
                         <tr>
-                            <th>NIK</th>
                             <th>Nama Nasabah</th>
+                            <th>NIK</th>
                             <th>Tanggal Pinjam</th>
                             <th>Sisa Pembayaran</th>
                             <th>Status</th>
