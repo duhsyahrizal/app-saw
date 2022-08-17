@@ -8,6 +8,7 @@
             <table id="datatable" class="responsive-table display" style="width: 100%;">
                 <thead class="primary white-text">
                     <tr>
+                        <th>No</th>
                         <th>Nama Nasabah</th>
                         <th>NIK</th>
                         <th>Status</th>

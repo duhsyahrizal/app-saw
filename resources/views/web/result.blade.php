@@ -4,8 +4,8 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-content">
-            <h5 class="card-title">Riwayat Transaksi</h5>
-            <table id="datatable" class="responsive-table display" style="width: 100%;">
+            <h5 class="card-title">Hasil Penilaian</h5>
+            <table id="datatable" class="responsive-table" style="width: 100%;">
                 <thead class="primary white-text">
                     <tr>
                         <th>Nama Nasabah</th>
@@ -32,7 +32,7 @@
 <script src="/template/dist/js/pages/datatable/datatable-basic.init.js"></script>
 <script>
     $('#datatable').DataTable({
-        "ajax": '/api/datatable/riwayat', 
+        "ajax": '/api/datatable/result', 
         "pageLength": 25, 
     })
 

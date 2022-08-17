@@ -12,17 +12,18 @@ class ApiController extends Controller
 {
     public function datatableNasabah()
     {
-        $nasabah    = Nasabah::get();
+        $nasabah    = Nasabah::orderBy('id', 'ASC')->get();
         $data       = array();
 
-        foreach($nasabah as $item) {
+        foreach($nasabah as $idx =>  $item) {
             $status = $item->status == 1 ? '<span class="new badge green" data-badge-caption="">Approved</span>' : '<span class="new badge red" data-badge-caption="">Rejected</span>';
 
             $data[] = [
+                $idx + 1,
                 $item->name_by_identity,
                 $item->nik,
                 $item->status == 0 ? '<span class="new badge orange" data-badge-caption="">Not Action</span>' : $status,
-                '<a href="/nasabah/delete/'.$item->id.'" class="btn btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>',
+                '<a href="/nasabah/detail/'.$item->id.'" class="btn btn-small waves-effect waves-light blue"><i class="material-icons">assignment</i></a> <a href="/nasabah/delete/'.$item->id.'" class="btn btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>',
             ];
         }
 
@@ -31,7 +32,7 @@ class ApiController extends Controller
         ];
     }
 
-    public function datatableRiwayat()
+    public function datatableResult()
     {
         $nasabahs   = Nasabah::whereHas('riwayat')->get();
         $data       = array();
@@ -48,6 +49,28 @@ class ApiController extends Controller
                 '<span class="new badge blue" data-badge-caption="">'.floatval(number_format($item->fuzzy_result, 2)).'%</span>',
                 $item->riwayat ? $Controller->formatRupiah($item->riwayat->loan_nominal) : 'Tidak ada',
                 $item->riwayat ? $Controller->formatRupiah($item->riwayat->remaining_payment) : 'Tidak ada',
+            ];
+        }
+
+        return [
+            'data'  => $data
+        ];
+    }
+
+    public function datatablePassResult()
+    {
+        $nasabahs   = Nasabah::whereHas('result')->get();
+        $data       = array();
+
+        foreach($nasabahs as $idx => $item) {
+            $data[] = [
+                $idx + 1,
+                $item->name_by_identity,
+                floatval(number_format($item->result->age_result, 2)) . '%',
+                floatval(number_format($item->result->status_result, 2)) . '%',
+                floatval(number_format($item->result->plafond_result, 2)) . '%',
+                floatval(number_format($item->result->total_business_age_result, 2)) . '%',
+                floatval(number_format($item->fuzzy_result, 2)) . '%',
             ];
         }
 

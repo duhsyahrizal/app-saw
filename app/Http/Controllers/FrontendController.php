@@ -30,11 +30,26 @@ class FrontendController extends Controller
         return view('web.nasabah', $data);
     }
 
-    public function riwayat()
+    public function detailNasabah($id)
     {
-        $data['menu']   = 'Riwayat';
+        $data['nasabah']    = Nasabah::find($id);
+        $data['menu']       = 'Dokumen Nasabah';
 
-        return view('web.riwayat', $data);
+        return view('web.detail', $data);
+    }
+
+    public function result()
+    {
+        $data['menu']   = 'Hasil Penilaian';
+
+        return view('web.result', $data);
+    }
+
+    public function passResult()
+    {
+        $data['menu']   = 'Hasil Kelolosan';
+
+        return view('web.pass-result', $data);
     }
 
     public function inputDataAnggota(Request $request)
@@ -192,7 +207,7 @@ class FrontendController extends Controller
                 'business_expense'              => $pengeluaranUsaha,
                 'non_business_expense'          => $pengeluaranLainnya,
                 'total_installment'             => $totalAngsuran,
-                'recommendation_loan'           => $plafondI*4,
+                'recommendation_loan'           => $plafondI*10,
                 'recommendation_installment'    => $plafondI,
                 'business_photo'                => session()->get('business_photo'),
             ]);
@@ -200,7 +215,7 @@ class FrontendController extends Controller
             // update nasabah informasi apabila data sudah ada
             NasabahBusiness::where('nasabah_id', $informations['nasabah_id'])
                 ->update([
-                    'business_name'                 => $businesses['business_name'],
+                'business_name'                 => $businesses['business_name'],
                 'business_address'              => $businesses['business_address'],
                 'operating_revenue'             => $totalPendapatan,
                 'business_fund'                 => $modalUsaha,
@@ -209,7 +224,7 @@ class FrontendController extends Controller
                 'business_expense'              => $pengeluaranUsaha,
                 'non_business_expense'          => $pengeluaranLainnya,
                 'total_installment'             => $totalAngsuran,
-                'recommendation_loan'           => $plafondI*4,
+                'recommendation_loan'           => $plafondI*10,
                 'recommendation_installment'    => $plafondI,
                 'business_photo'                => session()->get('business_photo'),
                 ]);
@@ -337,7 +352,7 @@ class FrontendController extends Controller
             ],
         ];
 
-        $result = Nasabah::calculateSaw($data);
+        $result = Nasabah::calculateSaw($nasabah, $data);
 
         if($result < 80) {
             // update status nasabah ketika reject

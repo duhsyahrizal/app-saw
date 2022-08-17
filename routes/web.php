@@ -18,10 +18,12 @@ Route::post('/login', 'AuthController@postLogin');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', 'FrontendController@index');
-    Route::get('/riwayat', 'FrontendController@riwayat');
+    Route::get('/result', 'FrontendController@result');
+    Route::get('/pass-result', 'FrontendController@passResult');
 
     Route::group(['prefix' => 'nasabah'], function() {
         Route::get('/', 'FrontendController@nasabah');
+        Route::get('/detail/{id}', 'FrontendController@detailNasabah');
         Route::post('/update', 'FrontendController@updateNasabah');
         Route::get('/delete/{id}', 'FrontendController@deleteNasabah');
     });

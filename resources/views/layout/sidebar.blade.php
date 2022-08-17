@@ -17,8 +17,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/riwayat" class="collapsible-header">
-                        <i class="material-icons">history</i><span class="hide-menu"> Riwayat Transaksi </span>
+                    <a href="/result" class="collapsible-header">
+                        <i class="material-icons">assignment_turned_in</i><span class="hide-menu"> Hasil Penilaian
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/pass-result" class="collapsible-header">
+                        <i class="material-icons">assignment_ind</i><span class="hide-menu"> Hasil Kelolosan
+                        </span>
                     </a>
                 </li>
             </ul>
