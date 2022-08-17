@@ -10,7 +10,8 @@ class Nasabah extends Model
     use HasFactory;
     protected $fillable = [
         'name_by_identity',
-        'nik'
+        'nik',
+        'fuzzy_result'
     ];
 
     public function information()
