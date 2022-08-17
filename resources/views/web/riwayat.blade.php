@@ -12,8 +12,9 @@
                         <th>NIK</th>
                         <th>Tanggal Pinjam</th>
                         <th>Status</th>
+                        <th>Kelolosan</th>
                         <th>Nominal Pinjam</th>
-                        <th>Sisa Pembayaran</th>                        
+                        <th>Sisa Pembayaran</th>
                     </tr>
                 </thead>
             </table>

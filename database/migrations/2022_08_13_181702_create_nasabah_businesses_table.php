@@ -17,14 +17,14 @@ class CreateNasabahBusinessesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('nasabah_id');
             $table->string('business_name', 200);
+            $table->string('business_address', 200);
             $table->integer('operating_revenue');
-            $table->tinyInteger('operating_margin');
             $table->integer('business_fund');
             $table->integer('net_income');
             $table->integer('other_income');
+            $table->integer('business_expense');
             $table->integer('non_business_expense');
             $table->integer('total_installment');
-            $table->integer('residual_income');
             $table->integer('recommendation_loan');
             $table->string('business_photo', 255);
             $table->timestamps();

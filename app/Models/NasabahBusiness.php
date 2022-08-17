@@ -12,16 +12,16 @@ class NasabahBusiness extends Model
     protected $fillable = [
         'nasabah_id',
         'business_name',
-        'average_price',
-        'average_sale',
-        'frequency_of_sales_days',
+        'business_address',
         'operating_revenue',
-        'operating_margin',
-        'turnover_income',
+        'net_income',
         'business_fund',
         'other_income',
+        'business_expense',
         'non_business_expense',
-        'total_installment'
+        'total_installment',
+        'recommendation_loan',
+        'business_photo'
     ];
 
     public function nasabah()

@@ -22,15 +22,10 @@ class NasabahInformation extends Model
         'sub_district',
         'ward',
         'postal_code',
-        'phone_number',
-        'email',
-        'nickname',
-        'mother_name',
-        'identity_photo',
-        'parent_photo',
-        'account_photo',
-        'face_photo',
-        'business_status',
+        'selfi_photo',
+        'ktp_photo',
+        'savings_photo',
+        'face_with_ktp_photo',
         'status'
     ];
 

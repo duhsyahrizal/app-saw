@@ -12,7 +12,9 @@ class Riwayat extends Model
     protected $fillable = [
         'nasabah_id',
         'borrow_date',
-        'is_paid'
+        'is_paid',
+        'remaining_payment',
+        'loan_nominal',
     ];
 
     public function nasabah()

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Nasabah;
 use App\Models\Riwayat;
+use App\Http\Controllers\FrontendController;
 
 class ApiController extends Controller
 {
@@ -21,6 +22,7 @@ class ApiController extends Controller
                 $item->name_by_identity,
                 $item->nik,
                 $item->status == 0 ? '<span class="new badge orange" data-badge-caption="">Not Action</span>' : $status,
+                '<a href="/nasabah/delete/'.$item->id.'" class="btn btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>',
             ];
         }
 
@@ -31,17 +33,21 @@ class ApiController extends Controller
 
     public function datatableRiwayat()
     {
-        $riwayats   = Riwayat::get();
+        $nasabahs   = Nasabah::whereHas('result')->get();
         $data       = array();
+        $Controller = new FrontendController();
 
-        foreach($riwayats as $item) {
-            $status = $item->information->status == 1 ? 'Diterima' : 'Ditolak';
+        foreach($nasabahs as $item) {
+            $status = $item->result->is_approved == 1 ? '<span class="new badge green" data-badge-caption="">Approved</span>' : '<span class="new badge red" data-badge-caption="">Rejected</span>';
 
             $data[] = [
-                $item->nasabah->name,
-                $item->nasabah->nik,
-                $item->borrow_date,
+                $item->name_by_identity,
+                $item->nik,
+                $item->riwayat ? \Carbon\Carbon::parse($item->riwayat->borrow_date)->format('d-m-Y') : 'Tidak ada',
                 $status,
+                '<span class="new badge blue" data-badge-caption="">'.floatval(number_format($item->result->fuzzy_result, 2)).'%</span>',
+                $item->riwayat ? $Controller->formatRupiah($item->riwayat->loan_nominal) : 'Tidak ada',
+                $item->riwayat ? $Controller->formatRupiah($item->riwayat->remaining_payment) : 'Tidak ada',
             ];
         }
 

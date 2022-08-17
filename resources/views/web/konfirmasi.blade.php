@@ -11,7 +11,7 @@
                         Pendapatan usaha (A)
                     </div>
                     <div class="col s12 m12 l6">
-                        {{ 'Rp. ' . number_format($totalPendapatan, 0, '', '.') }}
+                        {{ 'Rp. ' . number_format($plafond->operating_revenue, 0, '', '.') }}
                     </div>
                 </div>
                 <div class="row p-b-10">
@@ -19,7 +19,7 @@
                         Pembelian (B)
                     </div>
                     <div class="col s12 m12 l6">
-                        {{ 'Rp. ' . number_format($modalUsaha, 0, '', '.') }}
+                        {{ 'Rp. ' . number_format($plafond->business_fund, 0, '', '.') }}
                     </div>
                 </div>
                 <div class="row p-b-10">
@@ -28,7 +28,8 @@
                         A - B
                     </div>
                     <div class="col s12 m12 l6">
-                        {{ $plafondC }}
+                        {{ 'Rp. ' . number_format(($plafond->operating_revenue - $plafond->business_fund), 0, '', '.')
+                        }}
                     </div>
                 </div>
                 <div class="row p-b-10">
@@ -36,7 +37,7 @@
                         Pengeluaran Usaha (D)
                     </div>
                     <div class="col s12 m12 l6">
-                        {{ 'Rp. ' . number_format($pengeluaranUsaha, 0, '', '.') }}
+                        {{ 'Rp. ' . number_format($plafond->business_expense, 0, '', '.') }}
                     </div>
                 </div>
                 <div class="row p-b-10">
@@ -45,7 +46,7 @@
                         C - D
                     </div>
                     <div class="col s12 m12 l6">
-                        {{ $plafondE }}
+                        {{ 'Rp. ' . number_format($plafond->net_income, 0, '', '.') }}
                     </div>
                 </div>
                 <div class="row p-b-10">
@@ -53,7 +54,7 @@
                         Pendapatan Lainnya (F)
                     </div>
                     <div class="col s12 m12 l6">
-                        {{ 'Rp. ' . number_format($pendapatanLainnya, 0, '', '.') }}
+                        {{ 'Rp. ' . number_format($plafond->other_income, 0, '', '.') }}
                     </div>
                 </div>
                 <div class="row p-b-10">
@@ -61,7 +62,7 @@
                         Pengeluaran Non Usaha (G)
                     </div>
                     <div class="col s12 m12 l6">
-                        {{ 'Rp. ' . number_format($pengeluaranLainnya, 0, '', '.') }}
+                        {{ 'Rp. ' . number_format($plafond->non_business_expense, 0, '', '.') }}
                     </div>
                 </div>
                 <div class="p-b-10">
@@ -69,7 +70,7 @@
                         Total Angsuran (H)
                     </div>
                     <div class="col s12 m12 l6">
-                        {{ 'Rp. ' . number_format($totalAngsuran, 0, '', '.') }}
+                        {{ 'Rp. ' . number_format($plafond->total_installment, 0, '', '.') }}
                     </div>
                 </div>
             </div>

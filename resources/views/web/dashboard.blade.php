@@ -90,12 +90,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if($riwayats->isEmpty())
+                        @if($nasabahs->isEmpty())
                         <tr>
                             <td>No data available</td>
                         </tr>
                         @else
-
+                        @foreach($nasabahs as $item)
+                        <tr>
+                            <td>{{ $item->nik }}</td>
+                            <td>{{ $item->name_by_identity }}</td>
+                            <td>{{ \Carbon\Carbon::parse($item->borrow_date)->format('d-m-Y') }}</td>
+                            <td>{{ 'Rp. ' . number_format($item->riwayat->remaining_payment, 0, '', '.') }}</td>
+                            <td><span class="new badge {{ $item->result->is_approved ? 'green' : 'red' }}"
+                                    data-badge-caption="">{{ $item->result->is_approved ? 'Approved' :
+                                    'Rejected' }}</span></td>
+                        </tr>
+                        @endforeach
                         @endif
                     </tbody>
                 </table>
