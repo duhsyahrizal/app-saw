@@ -67,6 +67,11 @@ class FrontendController extends Controller
                 ->withErrors('Nasabah dengan NIK '. $isExist->nik .' sudah ada!');
         }
 
+        if(is_int($request->nik) === false) {
+            return redirect()->back()
+                ->withErrors('Maaf, NIK anda tidak boleh mengandung huruf!');
+        }
+
         $isCreated  = Nasabah::create([
             'name_by_identity'  => $request->name,
             'nik'               => $request->nik
