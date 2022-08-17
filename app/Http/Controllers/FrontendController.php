@@ -347,6 +347,11 @@ class FrontendController extends Controller
                 'fuzzy_result'  => $result
             ]);
 
+            // update status nasabah ketika reject
+            Nasabah::where('id', $nasabah->id)->update([
+                'status' => 2
+            ]);
+
             return redirect('/nasabah')->with([
                 'success'   => false,
                 'message'   => 'Maaf, hasil perhitungan nasabah kurang dari kriteria kami. Nasabah bersangkutan tidak bisa melakukan pinjaman'
