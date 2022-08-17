@@ -19,7 +19,7 @@ class FrontendController extends Controller
         $data['totalTransaksi'] = Riwayat::count();
         $data['totalPengajuan'] = Result::where('is_approved', true)->count();
         $data['totalBayar']     = Riwayat::where('is_paid', true)->count();
-        $data['nasabahs']       = Nasabah::whereHas('result')->orderBy('created_at', 'DESC')->get();
+        $data['nasabahs']       = Nasabah::whereHas('riwayat')->orderBy('created_at', 'DESC')->get();
         
         return view('web.dashboard', $data);
     }
