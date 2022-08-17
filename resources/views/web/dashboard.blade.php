@@ -79,8 +79,8 @@
         <div class="card-content">
             <h5 class="card-title">Transaksi Terkini</h5>
             <div class="table-responsive m-b-20">
-                <table class="">
-                    <thead>
+                <table>
+                    <thead class="primary white-text">
                         <tr>
                             <th>NIK</th>
                             <th>Nama Nasabah</th>
