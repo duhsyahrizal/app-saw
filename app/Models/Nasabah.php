@@ -97,7 +97,7 @@ class Nasabah extends Model
         $isExist        = Result::where('nasabah_id', $nasabah->id)->first();
 
         // perhitungan normalisasi dan perangkingan
-        $result         = (($plafondSaw * $points['plafond']['bobot']) + ($usiaSaw * $points['usia']['bobot']) + ($statusSaw * $points['status']['bobot']) + ($lamaUsahaSaw * $points['lama_usaha']['bobot'])) * 100;
+        $result         = (($plafondSaw * $points['plafond']['bobot'])*100) + (($usiaSaw * $points['usia']['bobot'])*100) + (($statusSaw * $points['status']['bobot'])*100) + (($lamaUsahaSaw * $points['lama_usaha']['bobot'])*100);
 
         if(!$isExist) {
             Result::create([

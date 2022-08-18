@@ -17,8 +17,8 @@
                             <th>No</th>
                             <th>Nama Nasabah</th>
                             <th>Usia</th>
-                            <th>Plafond</th>
                             <th>Status</th>
+                            <th>Plafond</th>
                             <th>Lama Usaha</th>
                         </tr>
                     </thead>
@@ -31,8 +31,8 @@
                             <th>No</th>
                             <th>Nama Nasabah</th>
                             <th>Usia</th>
-                            <th>Plafond</th>
                             <th>Status</th>
+                            <th>Plafond</th>
                             <th>Lama Usaha</th>
                             <th>Hasil</th>
                         </tr>
