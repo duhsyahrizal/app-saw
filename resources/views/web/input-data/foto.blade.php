@@ -29,8 +29,7 @@
                                         <input type="file" name="foto4" accept=".png,.jpeg,.jpg" required>
                                     </div>
                                     <div class="file-path-wrapper">
-                                        <input class="file-path validate" placeholder="Foto Selfi & Tabungan"
-                                            type="text">
+                                        <input class="file-path validate" placeholder="Foto Selfi + KTP" type="text">
                                     </div>
                                 </div>
                             </div>
