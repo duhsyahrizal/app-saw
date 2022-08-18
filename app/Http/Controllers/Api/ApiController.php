@@ -100,4 +100,27 @@ class ApiController extends Controller
             'data'  => $data
         ];
     }
+
+    public function inputPembayaran(Request $request)
+    {
+        $trxNasabah = Riwayat::find($request->nasabah_id);
+        
+        $substractPembayaran = (int)$trxNasabah->remaining_payment - (int)$request->nominal_bayar;
+
+        $isUpdated  = Riwayat::where('nasabah_id', $trxNasabah->nasabah_id)->update([
+            'remaining_payment' => $substractPembayaran
+        ]);
+
+        if($isUpdated) {
+            return response()->json([
+                'success'   => true,
+                'message'   => 'Input Pembayaran Berhasil!'
+            ]);
+        }
+
+        return response()->json([
+            'success'   => false,
+            'message'   => 'Input Pembayaran Gagal!'
+        ]);
+    }
 }

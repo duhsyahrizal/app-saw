@@ -23,4 +23,6 @@ Route::namespace('Api')->group(function() {
     Route::get('/datatable/result', 'ApiController@datatableResult');
     Route::get('/datatable/pass-result', 'ApiController@datatablePassResult');
     Route::get('/datatable/saw-result', 'ApiController@datatableSawResult');
+
+    Route::get('/nasabah/input/pembayaran', 'ApiController@inputPembayaran');
 });

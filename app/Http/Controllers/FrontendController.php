@@ -40,7 +40,8 @@ class FrontendController extends Controller
 
     public function result()
     {
-        $data['menu']   = 'Hasil Penilaian';
+        $data['menu']       = 'Hasil Penilaian';
+        $data['nasabahs']   = Nasabah::get();
 
         return view('web.result', $data);
     }

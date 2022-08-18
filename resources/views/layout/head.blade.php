@@ -12,6 +12,7 @@
 <link href="/template/dist/css/style.css?v={{ time() }}" rel="stylesheet">
 <!-- This page CSS -->
 <link href="/template/dist/css/custom.css?v={{ time() }}" rel="stylesheet">
+<link href="/template/assets/libs/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

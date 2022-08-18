@@ -31,5 +31,6 @@
 <script src="/template/assets/libs/moment/moment.js"></script>
 <script src="/template/assets/libs/daterangepicker/daterangepicker.js"></script>
 <script src="/template/dist/js/pages/forms/datetimepicker/datetimepicker.init.js"></script>
+<script src="/template/assets/libs/sweetalert2/dist/sweetalert2.min.js"></script>
 
 @yield('js')
