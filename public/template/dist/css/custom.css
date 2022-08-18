@@ -24,3 +24,15 @@
   display: flex; 
   justify-content: end;
 }
+
+.tabs .tab a:hover, .tabs .tab a.active {
+    color: var(--primary-color) !important;
+}
+
+.tabs .indicator {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background-color: var(--primary-color) !important;
+    will-change: left, right;
+}

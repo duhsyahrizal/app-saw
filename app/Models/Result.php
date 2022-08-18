@@ -14,6 +14,10 @@ class Result extends Model
         'age_result',
         'status_result',
         'plafond_result',
-        'total_business_age_result',
+        'business_age_result',
+        'age_saw_result',
+        'status_saw_result',
+        'plafond_saw_result',
+        'business_age_saw_result',
     ];
 }

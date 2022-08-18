@@ -4,20 +4,41 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-content">
-            <h5 class="card-title">Hasil Kelolosan</h5>
-            <table id="datatable" class="responsive-table display" style="width: 100%;">
-                <thead class="primary white-text">
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Nasabah</th>
-                        <th>Usia</th>
-                        <th>Plafond</th>
-                        <th>Status</th>
-                        <th>Lama Usaha</th>
-                        <th>Hasil</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s4"><a class="active" href="#normalisasi">Ternormalisasi</a></li>
+                    <li class="tab col s4"><a href="#hasil">Hasil</a></li>
+                </ul>
+            </div>
+            <div id="normalisasi">
+                <table id="normalisasiDatatable" class="responsive-table display" style="width: 100%;">
+                    <thead class="primary white-text">
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Nasabah</th>
+                            <th>Usia</th>
+                            <th>Plafond</th>
+                            <th>Status</th>
+                            <th>Lama Usaha</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div id="hasil">
+                <table id="datatable" class="responsive-table display" style="width: 100%;">
+                    <thead class="primary white-text">
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Nasabah</th>
+                            <th>Usia</th>
+                            <th>Plafond</th>
+                            <th>Status</th>
+                            <th>Lama Usaha</th>
+                            <th>Hasil</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -33,6 +54,11 @@
 <script>
     $('#datatable').DataTable({
         "ajax": '/api/datatable/pass-result', 
+        "pageLength": 25, 
+    })
+
+    $('#normalisasiDatatable').DataTable({
+        "ajax": '/api/datatable/saw-result', 
         "pageLength": 25, 
     })
 

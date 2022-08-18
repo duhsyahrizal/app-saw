@@ -18,6 +18,7 @@ class CreateNasabahBusinessesTable extends Migration
             $table->unsignedInteger('nasabah_id');
             $table->string('business_name', 200);
             $table->string('business_address', 200);
+            $table->tinyInteger('business_age');
             $table->integer('operating_revenue');
             $table->integer('business_fund');
             $table->integer('net_income');

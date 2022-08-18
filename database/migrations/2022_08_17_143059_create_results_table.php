@@ -19,7 +19,11 @@ class CreateResultsTable extends Migration
             $table->double('age_result');
             $table->double('status_result');
             $table->double('plafond_result');
-            $table->double('total_business_age_result');
+            $table->double('business_age_result');
+            $table->double('age_saw_result');
+            $table->double('status_saw_result');
+            $table->double('plafond_saw_result');
+            $table->double('business_age_saw_result');
             $table->timestamps();
 
             $table->foreign('nasabah_id')->references('id')->on('nasabahs')

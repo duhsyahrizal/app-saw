@@ -22,4 +22,5 @@ Route::namespace('Api')->group(function() {
     Route::get('/datatable/nasabah', 'ApiController@datatableNasabah');
     Route::get('/datatable/result', 'ApiController@datatableResult');
     Route::get('/datatable/pass-result', 'ApiController@datatablePassResult');
+    Route::get('/datatable/saw-result', 'ApiController@datatableSawResult');
 });

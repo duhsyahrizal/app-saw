@@ -101,28 +101,10 @@
             <h5 class="card-title m-t-30">Dokumen Foto</h5>
             <div class="row" style="text-align: center">
                 <div class="col s12 m12 l6">
-                    <label for="selfi" style="font-size: 20px">Foto Selfi</label>
-                    <div class="card" style="padding: 0 15%;">
-                        <div class="card-image">
-                            <img src="{{ $nasabah->information->selfi_photo }}">
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m12 l6">
                     <label for="ktp" style="font-size: 20px">Foto KTP</label>
                     <div class="card" style="padding: 0 15%;">
                         <div class="card-image">
                             <img src="{{ $nasabah->information->ktp_photo }}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" style="text-align: center">
-                <div class="col s12 m12 l6">
-                    <label for="savings" style="font-size: 20px">Foto Tabungan</label>
-                    <div class="card" style="padding: 0 15%;">
-                        <div class="card-image">
-                            <img src="{{ $nasabah->information->savings_photo }}">
                         </div>
                     </div>
                 </div>
@@ -131,6 +113,19 @@
                     <div class="card" style="padding: 0 15%;">
                         <div class="card-image">
                             <img src="{{ $nasabah->information->face_with_ktp_photo }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+            @if($nasabah->businessInformation)
+            <h5 class="card-title m-t-30">Foto Outlet Usaha</h5>
+            <div class="row" style="text-align: center">
+                <div class="col s12 m12 l6">
+                    <label for="selfi" style="font-size: 20px">Foto Outlet</label>
+                    <div class="card" style="padding: 0 15%;">
+                        <div class="card-image">
+                            <img src="{{ $nasabah->businessInformation->business_photo }}">
                         </div>
                     </div>
                 </div>

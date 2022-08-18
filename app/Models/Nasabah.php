@@ -54,7 +54,7 @@ class Nasabah extends Model
 
             if($value > 30 && $value < 40) {
                 $data[$pointName]['point'] = 2;
-            } else if($value < 30 && $value > 20) {
+            } else if($value < 30) {
                 $data[$pointName]['point'] = 3;
             }
         } else if($pointName == 'plafond') {
@@ -105,14 +105,23 @@ class Nasabah extends Model
                 'age_result'                => ($usiaSaw * $points['usia']['bobot']) * 100,
                 'status_result'             => ($statusSaw * $points['status']['bobot']) * 100 ,
                 'plafond_result'            => ($plafondSaw * $points['plafond']['bobot']) * 100,
-                'total_business_age_result' => ($lamaUsahaSaw * $points['lama_usaha']['bobot']) * 100,
+                'business_age_result'       => ($lamaUsahaSaw * $points['lama_usaha']['bobot']) * 100,
+                'age_saw_result'            => $usiaSaw,
+                'status_saw_result'         => $statusSaw,
+                'plafond_saw_result'        => $plafondSaw,
+                'business_age_saw_result'   => $lamaUsahaSaw,
             ]);
         } else {
             Result::where('nasabah_id', $nasabah->id)->update([
+                'nasabah_id'                => $nasabah->id,
                 'age_result'                => ($usiaSaw * $points['usia']['bobot']) * 100,
-                'status_result'             => ($statusSaw * $points['status']['bobot']) * 100,
+                'status_result'             => ($statusSaw * $points['status']['bobot']) * 100 ,
                 'plafond_result'            => ($plafondSaw * $points['plafond']['bobot']) * 100,
-                'total_business_age_result' => ($lamaUsahaSaw * $points['lama_usaha']['bobot']) * 100,
+                'business_age_result'       => ($lamaUsahaSaw * $points['lama_usaha']['bobot']) * 100,
+                'age_saw_result'            => $usiaSaw,
+                'status_saw_result'         => $statusSaw,
+                'plafond_saw_result'        => $plafondSaw,
+                'business_age_saw_result'   => $lamaUsahaSaw,
             ]);
         }
 

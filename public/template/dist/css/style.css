@@ -3682,7 +3682,7 @@ small {
         outline: none; }
       .tabs .tab a:hover, .tabs .tab a.active {
         background-color: transparent;
-        color: #769aff; }
+        color: var(--primary-color); }
     .tabs .tab.disabled a,
     .tabs .tab.disabled a:hover {
       color: rgba(118, 154, 255, 0.4);

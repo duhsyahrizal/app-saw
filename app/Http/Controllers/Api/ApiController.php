@@ -69,8 +69,30 @@ class ApiController extends Controller
                 floatval(number_format($item->result->age_result, 2)) . '%',
                 floatval(number_format($item->result->status_result, 2)) . '%',
                 floatval(number_format($item->result->plafond_result, 2)) . '%',
-                floatval(number_format($item->result->total_business_age_result, 2)) . '%',
+                floatval(number_format($item->result->business_age_result, 2)) . '%',
                 floatval(number_format($item->fuzzy_result, 2)) . '%',
+            ];
+        }
+
+        return [
+            'data'  => $data
+        ];
+    }
+
+    public function datatableSawResult()
+    {
+        $nasabahs   = Nasabah::whereHas('result')->get();
+        $data       = array();
+
+        foreach($nasabahs as $idx => $item) {
+            $data[] = [
+                $idx + 1,
+                $item->name_by_identity,
+                floatval(number_format($item->result->age_saw_result, 2)),
+                floatval(number_format($item->result->status_saw_result, 2)),
+                floatval(number_format($item->result->plafond_saw_result, 2)),
+                floatval(number_format($item->result->business_age_saw_result, 2)),
+                floatval(number_format($item->fuzzy_result, 2)),
             ];
         }
 

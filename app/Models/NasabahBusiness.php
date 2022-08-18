@@ -13,6 +13,7 @@ class NasabahBusiness extends Model
         'nasabah_id',
         'business_name',
         'business_address',
+        'business_age',
         'operating_revenue',
         'net_income',
         'business_fund',

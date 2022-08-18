@@ -194,12 +194,17 @@ class FrontendController extends Controller
         $businesses     = session()->get('business_information');
         $businessExist  = NasabahBusiness::where('nasabah_id', $informations['nasabah_id'])->first();
 
+        // rumus margin
+        $persenMargin   = 30/100;
+        $marginTotal    = ($plafondI*10) - (($plafondI*10)*$persenMargin);
+
         if(!$businessExist) {
             // membuat nasabah informasi bersama dengan foto
             NasabahBusiness::create([
                 'nasabah_id'                    => $informations['nasabah_id'],
                 'business_name'                 => $businesses['business_name'],
                 'business_address'              => $businesses['business_address'],
+                'business_age'                  => $businesses['business_age'],
                 'operating_revenue'             => $totalPendapatan,
                 'business_fund'                 => $modalUsaha,
                 'net_income'                    => $plafondE,
@@ -207,7 +212,7 @@ class FrontendController extends Controller
                 'business_expense'              => $pengeluaranUsaha,
                 'non_business_expense'          => $pengeluaranLainnya,
                 'total_installment'             => $totalAngsuran,
-                'recommendation_loan'           => $plafondI*10,
+                'recommendation_loan'           => $marginTotal,
                 'recommendation_installment'    => $plafondI,
                 'business_photo'                => session()->get('business_photo'),
             ]);
@@ -217,6 +222,7 @@ class FrontendController extends Controller
                 ->update([
                 'business_name'                 => $businesses['business_name'],
                 'business_address'              => $businesses['business_address'],
+                'business_age'                  => $businesses['business_age'],
                 'operating_revenue'             => $totalPendapatan,
                 'business_fund'                 => $modalUsaha,
                 'net_income'                    => $plafondE,
@@ -224,7 +230,7 @@ class FrontendController extends Controller
                 'business_expense'              => $pengeluaranUsaha,
                 'non_business_expense'          => $pengeluaranLainnya,
                 'total_installment'             => $totalAngsuran,
-                'recommendation_loan'           => $plafondI*10,
+                'recommendation_loan'           => $marginTotal,
                 'recommendation_installment'    => $plafondI,
                 'business_photo'                => session()->get('business_photo'),
                 ]);
@@ -293,10 +299,8 @@ class FrontendController extends Controller
                 'profession'            => $informations['profession'],
                 'citizenship'           => $informations['citizenship'],
                 'status'                => $status,
-                'selfi_photo'           => $photos['path'][0],
-                'ktp_photo'             => $photos['path'][1],
-                'savings_photo'         => $photos['path'][2],
-                'face_with_ktp_photo'   => $photos['path'][3],
+                'ktp_photo'             => $photos['path'][0],
+                'face_with_ktp_photo'   => $photos['path'][1],
             ]);
         } else {
             // update nasabah informasi apabila data sudah ada
@@ -318,10 +322,8 @@ class FrontendController extends Controller
                     'profession'            => $informations['profession'],
                     'citizenship'           => $informations['citizenship'],
                     'status'                => $status,
-                    'selfi_photo'           => $photos['path'][0],
-                    'ktp_photo'             => $photos['path'][1],
-                    'savings_photo'         => $photos['path'][2],
-                    'face_with_ktp_photo'   => $photos['path'][3],
+                    'ktp_photo'             => $photos['path'][0],
+                    'face_with_ktp_photo'   => $photos['path'][1],
                 ]);
         }
         
