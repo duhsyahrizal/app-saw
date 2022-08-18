@@ -112,7 +112,7 @@ class ApiController extends Controller
             'is_paid'           =>  $substractPembayaran < 0 || $substractPembayaran == 0 ? true : false
         ]);
 
-        if($substractPembayaran < 0 || $substractPembayaran == 0) {
+        if($substractPembayaran < 0 && $trxNasabah->is_paid) {
             return response()->json([
                 'success'   => false,
                 'message'   => 'Nasabah dengan NIK '. $trxNasabah->nasabah->nik .' sudah melunasi pembayaran!'
