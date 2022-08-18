@@ -108,7 +108,8 @@ class ApiController extends Controller
         $substractPembayaran = (int)$trxNasabah->remaining_payment - (int)$request->nominal_bayar;
 
         $isUpdated  = Riwayat::where('nasabah_id', $trxNasabah->nasabah_id)->update([
-            'remaining_payment' => $substractPembayaran
+            'remaining_payment' => $substractPembayaran < 0 || $substractPembayaran == 0 ? 0 : $substractPembayaran,
+            'is_paid'           =>  $substractPembayaran < 0 || $substractPembayaran == 0 ? true : false
         ]);
 
         if($isUpdated) {
