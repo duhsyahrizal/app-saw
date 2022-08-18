@@ -114,7 +114,7 @@ class ApiController extends Controller
 
         if($substractPembayaran < 0 || $substractPembayaran == 0) {
             return response()->json([
-                'success'   => true,
+                'success'   => false,
                 'message'   => 'Nasabah dengan NIK '. $trxNasabah->nasabah->nik .' sudah melunasi pembayaran!'
             ]);
         }
