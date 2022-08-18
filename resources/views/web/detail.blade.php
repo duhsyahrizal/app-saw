@@ -91,7 +91,7 @@
                 <div class="input-field col s12 m12 l6">
                     <label for="status">Status</label>
                     <input type="text" name="status"
-                        value="{{ $nasabah->information->status == 0 ? 'Belum Menikah' : $nasabah->information->status == 1 ? 'Menikah' : 'Bercerai' }}"
+                        value="@if($nasabah->information->status == 0)Belum Menikah @elseif($nasabah->information->status == 1)Menikah @else Bercerai @endif"
                         disabled="true">
                 </div>
                 @endif
