@@ -90,9 +90,12 @@ class Nasabah extends Model
     {
         // rumus normalisasi saw, disini point pembagi = 3 dikarenakan semua hasil dari maksimal point tiap kriteria = 3 poin
         $plafondSaw     = $points['plafond']['point'] / 3;
-        $usiaSaw        = $points['usia']['point'] / 3;
         $statusSaw      = $points['status']['point'] / 3;
         $lamaUsahaSaw   = $points['lama_usaha']['point'] / 3;
+
+        // rumus normalisasi untuk point terendah => nilai normalisasi paling tinggi. Disini point paling rendah = 1, maka 1 : 1 = 1 dan point lebih dari 1 maka 1 : point usia
+        $usiaSaw        = $points['usia']['point'] / 1;
+        if($points['usia']['point'] > 1) $usiaSaw = 1 / $points['usia']['point'];
 
         $isExist        = Result::where('nasabah_id', $nasabah->id)->first();
 
