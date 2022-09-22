@@ -18,7 +18,7 @@
                 </li>
                 <li>
                     <a href="/result" class="collapsible-header">
-                        <i class="material-icons">assignment_turned_in</i><span class="hide-menu"> Hasil Penilaian
+                        <i class="material-icons">assignment_turned_in</i><span class="hide-menu"> Hasil Pengajuan
                         </span>
                     </a>
                 </li>

@@ -37,23 +37,6 @@
             <label for="rw">RW</label>
             <input type="text" name="rw" placeholder="RW" id="rw" required>
           </div>
-          <div class="col s12 m12 l12 m-b-20">
-            <label for="gender">Jenis Kelamin</label>
-            <div class="row m-t-20">
-              <div class="col s6 m3 l2">
-                <label>
-                  <input name="gender" class="with-gap" value="0" type="radio" required />
-                  <span>Laki laki</span>
-                </label>
-              </div>
-              <div class="col s6 m3 l2">
-                <label>
-                  <input name="gender" class="with-gap" value="1" type="radio" />
-                  <span>Perempuan</span>
-                </label>
-              </div>
-            </div>
-          </div>
           <div class="input-field col s12 m12 l6">
             <label for="province">Provinsi</label>
             <input type="text" name="province" placeholder="Provinsi" id="province" required>

@@ -54,7 +54,7 @@ class Nasabah extends Model
 
             if($value > 30 && $value < 40) {
                 $data[$pointName]['point'] = 2;
-            } else if($value < 30) {
+            } else if($value > 20 && $value < 30) {
                 $data[$pointName]['point'] = 3;
             }
         } else if($pointName == 'plafond') {

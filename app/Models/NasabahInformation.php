@@ -29,7 +29,9 @@ class NasabahInformation extends Model
         'ktp_photo',
         'savings_photo',
         'face_with_ktp_photo',
-        'status'
+        'status',
+        'training_photo',
+        'is_trained'
     ];
 
     public function nasabah()

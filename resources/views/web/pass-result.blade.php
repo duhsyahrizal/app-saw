@@ -7,7 +7,7 @@
             <div class="col s12">
                 <ul class="tabs">
                     <li class="tab col s4"><a class="active" href="#normalisasi">Ternormalisasi</a></li>
-                    <li class="tab col s4"><a href="#hasil">Hasil</a></li>
+                    <li class="tab col s4"><a href="#hasil">Hasil SAW</a></li>
                 </ul>
             </div>
             <div id="normalisasi">

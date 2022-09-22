@@ -98,6 +98,19 @@
                 <hr>
             </div>
             @if($nasabah->information)
+            @if($nasabah->information->training_photo)
+            <h5 class="card-title m-t-30">Bukti Pelatihan</h5>
+            <div class="row" style="text-align: center">
+                <div class="col s12 m12 l6">
+                    <label for="ktp" style="font-size: 20px">Foto Pelatihan</label>
+                    <div class="card" style="padding: 0 15%;">
+                        <div class="card-image">
+                            <img src="{{ $nasabah->information->training_photo }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
             <h5 class="card-title m-t-30">Dokumen Foto</h5>
             <div class="row" style="text-align: center">
                 <div class="col s12 m12 l6">

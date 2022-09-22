@@ -103,7 +103,7 @@ class ApiController extends Controller
 
     public function inputPembayaran(Request $request)
     {
-        $trxNasabah = Riwayat::find($request->nasabah_id);
+        $trxNasabah = Riwayat::where('nasabah_id', $request->nasabah_id)->first();
         
         $substractPembayaran = (int)$trxNasabah->remaining_payment - (int)$request->nominal_bayar;
 

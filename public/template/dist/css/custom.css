@@ -19,6 +19,10 @@
   color: var(--primary-color) !important;
 }
 
+.d-none {
+  display: none !important;
+}
+
 .box-button {
   width: 100%; 
   display: flex; 

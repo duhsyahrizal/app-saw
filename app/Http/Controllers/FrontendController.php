@@ -40,7 +40,7 @@ class FrontendController extends Controller
 
     public function result()
     {
-        $data['menu']       = 'Hasil Penilaian';
+        $data['menu']       = 'Hasil Pengajuan';
         $data['nasabahs']   = Nasabah::get();
 
         return view('web.result', $data);
@@ -197,7 +197,7 @@ class FrontendController extends Controller
 
         // rumus margin
         $persenMargin   = 30/100;
-        $marginTotal    = ($plafondI*10) - (($plafondI*10)*$persenMargin);
+        $marginTotal    = ($plafondI*10) - (($plafondI*10) * $persenMargin);
 
         if(!$businessExist) {
             // membuat nasabah informasi bersama dengan foto
@@ -261,6 +261,8 @@ class FrontendController extends Controller
         $data           = array();
         $informations   = session()->get('information');
         $photos         = session()->get('photos');
+        $file           = $request->file('foto_pelatihan');
+        $file->move(public_path('/temp/'), $file->getClientOriginalName());
 
         $nasabah        = Nasabah::find($informations['nasabah_id']);
         $businessExist  = NasabahBusiness::where('nasabah_id', $informations['nasabah_id'])->first();
@@ -287,7 +289,7 @@ class FrontendController extends Controller
                 'birth_date'            => $informations['birth_date'],
                 'birth_location'        => $informations['birth_location'],
                 'address_by_identity'   => $informations['address'],
-                'gender'                => $informations['gender'],
+                'gender'                => 1,
                 'rt'                    => $informations['rt'],
                 'rw'                    => $informations['rw'],
                 'province'              => $informations['province'],
@@ -302,6 +304,8 @@ class FrontendController extends Controller
                 'status'                => $status,
                 'ktp_photo'             => $photos['path'][0],
                 'face_with_ktp_photo'   => $photos['path'][1],
+                'training_photo'        => '/temp/'.$request->file('foto_pelatihan')->getClientOriginalName(),
+                'is_trained'            => $request->pelatihan
             ]);
         } else {
             // update nasabah informasi apabila data sudah ada
@@ -325,6 +329,8 @@ class FrontendController extends Controller
                     'status'                => $status,
                     'ktp_photo'             => $photos['path'][0],
                     'face_with_ktp_photo'   => $photos['path'][1],
+                    'training_photo'        => '/temp/'.$request->file('foto_pelatihan')->getClientOriginalName(),
+                    'is_trained'            => $request->pelatihan
                 ]);
         }
         
@@ -354,6 +360,19 @@ class FrontendController extends Controller
                 'point' => $bobotLamaUsaha['lama_usaha']['point'],
             ],
         ];
+
+        if(!$request->pelatihan) {
+            // update status nasabah ketika reject
+            Nasabah::where('id', $nasabah->id)->update([
+                'status'        => 2,
+                'fuzzy_result'  => 0
+            ]);
+
+            return redirect('/nasabah')->with([
+                'success'   => false,
+                'message'   => 'Maaf, hasil perhitungan nasabah kurang dari kriteria kami. Nasabah bersangkutan tidak bisa melakukan pinjaman'
+            ]);
+        }
 
         $result = Nasabah::calculateSaw($nasabah, $data);
 
