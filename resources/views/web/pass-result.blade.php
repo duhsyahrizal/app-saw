@@ -18,7 +18,7 @@
                             <th>Nama Nasabah</th>
                             <th>Usia</th>
                             <th>Status</th>
-                            <th>Plafond</th>
+                            <th>Sisa Harta</th>
                             <th>Lama Usaha</th>
                         </tr>
                     </thead>
@@ -32,7 +32,7 @@
                             <th>Nama Nasabah</th>
                             <th>Usia</th>
                             <th>Status</th>
-                            <th>Plafond</th>
+                            <th>Sisa Harta</th>
                             <th>Lama Usaha</th>
                             <th>Hasil</th>
                         </tr>

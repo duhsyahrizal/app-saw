@@ -78,7 +78,7 @@
             <div class="row">
                 <div class="row p-b-10">
                     <div class="col s12 m12 l6">
-                        Sisa Penghasilan <br />
+                        Sisa Harta <br />
                         ((E + F) - G) - H
                     </div>
                     <div class="col s12 m12 l6">
