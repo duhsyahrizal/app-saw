@@ -5,9 +5,6 @@
 <!-- Container fluid scss in scafholding.scss -->
 <!-- ============================================================== -->
 <div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Sales Summery -->
-    <!-- ============================================================== -->
     <div class="row">
         <div class="col l3 m6 s12">
             <div class="card danger-gradient card-hover">
